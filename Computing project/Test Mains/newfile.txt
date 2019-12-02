@@ -1,0 +1,4 @@
+# Vertices 
+# Materials 
+m 1 2700 bcbcbc aluminium
+# Cells 
