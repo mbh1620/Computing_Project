@@ -1,5 +1,5 @@
 #include <iostream>
-#include "model_class/model.hpp"
+#include "renderer_class/renderer.hpp"
 
 
 using namespace std;
@@ -19,5 +19,9 @@ int main(){
 	cout << "num of hexahedrons: " << array[2] << "\n";
 	
 	model1.saveNewFile("newfile.txt");
+
+	renderer renderer1(model1);
+
+	renderer1.file_start();
 
 }
