@@ -28,14 +28,18 @@ private:
 
 	string filename;
 
+	ofstream outfile;
+
 public:
-	renderer(model& the_model);									//Constructor
+	renderer(model _the_model);								//Constructor
 	
 	~renderer();												//Destructor
 
 	renderer(const renderer& a);					 			//Copy Constructor
 
 	renderer& operator=(const renderer& a);						//Assignment Operator
+
+	model& get_model();
 
 	void open_file();				
 

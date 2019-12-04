@@ -15,6 +15,7 @@ v 11 0.5 1 0
 m 1 2700 bcbcbc aluminium
 # Cells 
 c 0 t 1 8 9 10 11 
+c 0 t 1 4 6 10 11 
 c 1 p 1 8 9 10 11 5 
 c 2 h 1 1 2 3 4 5 6 
 c 3 t 1 8 10 9 11 

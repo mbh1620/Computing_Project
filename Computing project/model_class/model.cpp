@@ -15,10 +15,15 @@ model::~model(){
 }
 
 model::model(const model& a){
-
+	list_of_cells = a.list_of_cells;
+	list_of_materials = a.list_of_materials;
+	list_of_vertexes = a.list_of_vertexes;
 }
 
 model& model:: operator=(const model& a){
+	list_of_cells = a.list_of_cells;
+	list_of_materials = a.list_of_materials;
+	list_of_vertexes = a.list_of_vertexes;
 	return *this;
 }
 
@@ -257,6 +262,10 @@ void model::cell_parser(string cell_data){
 
 deque<cell> model::get_list_of_cells(){
 	return list_of_cells;
+}
+
+deque<Vector> model::get_list_of_vertices(){
+	return list_of_vertexes;
 }
 
 int model::get_material_num(){
