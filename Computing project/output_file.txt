@@ -1,0 +1,19 @@
+# Vertices 
+v 11 0.5 1 0
+v 10 0.5 0 1
+v 9 1 0 0
+v 8 0 0 20
+v 7 2 2 0
+v 6 0 2 0
+v 5 2 0 0
+v 4 0 0 0
+v 3 2 2 2
+v 2 0 2 2
+v 1 2 0 2
+v 0 0 0 2
+# Materials 
+m 0 8960 b87373 Copper
+m 1 2700 bcbcbc Aluminium
+m 2 3000 43464B Steel
+# Cells 
+c 0 h 0 0 1 2 3 4 5 6 7 

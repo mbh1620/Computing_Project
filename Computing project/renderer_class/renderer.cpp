@@ -40,7 +40,7 @@ void renderer::close_file(){
 
 void renderer::file_start(){
 
-	string data = "<html>\n"
+	outfile << "<html>\n"
 	"<head>\n"
     "<title>3D Model Viewer</title>\n"
     "<link rel='stylesheet' href='style.css'>\n"
@@ -54,11 +54,13 @@ void renderer::file_start(){
     "<label style='font-family: helvetica'>Choose file to upload</label>\n"
     "<input type='file'>\n"
     "<h3>Materials</h3>\n"
-    "<ul style='list-style-type: none'>\n"
-    "<li><input type='color' value='#757575'>Aluminium</li>\n"
-    "<li><input type='color' value='#cc9316'>Copper</li>\n"
-    "<li><input type='color' value='#bababa'>Steel</li>\n"
-    "</ul>\n"
+    "<ul style='list-style-type: none'>\n";
+
+    for(int i = 0; i < the_model.get_list_of_materials().size(); i++){
+      outfile << "<li><input type='color' value='#"<<the_model.get_list_of_materials()[i].getColour() << "'>"<< the_model.get_list_of_materials()[i].getName() << "</li>\n";
+    }
+
+    outfile <<"</ul>\n"
     "<h3>Cells</h3>\n"
     "<h3>Vectors</h3>\n"
     "<ul>\n"
@@ -93,7 +95,6 @@ void renderer::file_start(){
     "light.position.set(-1, 2, 4);\n"
     "scene.add(light);\n"
   "}\n";
-  outfile << data << endl;
 }
 
 void renderer::file_tetrahedrons(){
@@ -152,7 +153,7 @@ void renderer::file_tetrahedrons(){
 
   }
 
-  data = "function makeInstance(geometry, color, x) {\n"
+  data = "function makeInstancet(geometry, color, x) {\n"
     "const material = new THREE.MeshBasicMaterial({color});\n"
 
     "const tetra = new THREE.Mesh(geometry, material);\n"
@@ -168,7 +169,7 @@ void renderer::file_tetrahedrons(){
   outfile << data << endl;
 
   for( int a = 0; a < list_of_tetrahedrons.size(); a++){
-    outfile << "makeInstance(geometry"<< a <<", 0x44FF44, 0),\n" <<endl;
+    outfile << "makeInstancet(geometry"<< a <<", 0x"<< list_of_tetrahedrons[a].get_material().getColour() << ", 0),\n" <<endl;
   }
 
   outfile << "];\n";
@@ -176,7 +177,86 @@ void renderer::file_tetrahedrons(){
 }
 
 void renderer::file_hexahedrons(){
-  //For all the hexahedrons in the model send their information to the render file
+  string data;
+  //For all the tetrahedrons in the model send their information to the render file
+  //Create a list of tetrahedrons in the model 
+  deque<cell> list_of_hexahedrons;
+  for(int i = 0; i < the_model.get_list_of_cells().size(); i++){
+    if(the_model.get_list_of_cells()[i].get_shape() == 'h'){
+      list_of_hexahedrons.push_back(the_model.get_list_of_cells()[i]);
+    }
+  }
+
+
+
+  for(int i = 0; i < list_of_hexahedrons.size(); i++){
+
+    outfile << "const geometry_h" << i <<" = new THREE.Geometry();\n"
+  "geometry_h" << i <<".vertices.push(\n";
+
+  //Extract the information about the hexahedrons
+
+  /* Extract the vertices from the hexahedrons */
+
+  deque<Vector> vertices_from_hexahedron;
+
+
+
+    vertices_from_hexahedron = list_of_hexahedrons[i].get_vertices();
+
+    for(int z = 0; z < vertices_from_hexahedron.size(); z++){
+      outfile << "new THREE.Vector3("<< vertices_from_hexahedron[z].get('x') <<","<< vertices_from_hexahedron[z].get('y') << "," << vertices_from_hexahedron[z].get('z') << "),  // 0\n";
+    
+    }
+
+    data = ");\n";
+
+    outfile << data << endl;
+
+    outfile << "geometry_h"<<i<<".faces.push(\n"
+     "// front\n"
+     "new THREE.Face3(0, 3, 2),\n"
+     "new THREE.Face3(0, 1, 3),\n"
+     "// right\n"
+     "new THREE.Face3(1, 7, 3),\n"
+     "new THREE.Face3(1, 5, 7),\n"
+     "// back\n"
+     "new THREE.Face3(5, 6, 7),\n"
+     "new THREE.Face3(5, 4, 6),\n"
+     "// left\n"
+     "new THREE.Face3(4, 2, 6),\n"
+     "new THREE.Face3(4, 0, 2),\n"
+     "// top\n"
+     "new THREE.Face3(2, 7, 6),\n"
+     "new THREE.Face3(2, 3, 7),\n"
+     "// back\n"
+     "new THREE.Face3(4, 1, 0),\n"
+     "new THREE.Face3(4, 5, 1),\n"
+    ");\n";
+  }
+
+  data = "function makeInstanceh(geometry, color, x) {\n"
+    "const material = new THREE.MeshBasicMaterial({color});\n"
+
+    "const hexa = new THREE.Mesh(geometry, material);\n"
+    "scene.add(hexa);\n"
+
+    "hexa.position.x = x;\n"
+    "return hexa;\n"
+  "}\n"
+  "\n"
+  "\n"
+  "const hexas = [\n";
+
+  outfile << data << endl;
+
+  for( int a = 0; a < list_of_hexahedrons.size(); a++){
+    outfile << "makeInstanceh(geometry_h"<< a <<", 0x" << list_of_hexahedrons[a].get_material().getColour() << ", 0),\n" <<endl;
+  }
+
+  outfile << "];\n";
+
+
 }
 
 void renderer::file_pyramids(){
@@ -207,6 +287,12 @@ void renderer::file_end(){
       "const rot = time * speed;\n"
       "tetra.rotation.x = 0;\n"
       "tetra.rotation.y = 0;\n"
+    "});\n"
+    "hexas.forEach((hexa, ndx) => {\n"
+      "const speed = 1 + ndx * .1;\n"
+      "const rot = time * speed;\n"
+      "hexa.rotation.x = 0;\n"
+      "hexa.rotation.y = 0;\n"
     "});\n"
     "renderer.render(scene, camera);\n"
     "requestAnimationFrame(render);\n"

@@ -5,9 +5,6 @@ model::model(){
 	tetrahedrons = 0;
 	pyramids = 0;
 	hexahedrons = 0;
-
-	material a = material(1, "aluminium", "bcbcbc", 2700);
-	list_of_materials.push_back(a);
 }
 
 model::~model(){
@@ -148,7 +145,8 @@ void model::vertex_parser(string vertex_data){
 
 	Vector new_vertex = Vector(IDint, x, y, z);
 
-	list_of_vertexes.push_back(new_vertex);
+	list_of_vertexes.push_front(new_vertex); 
+
 }
 
 void model::cell_parser(string cell_data){
@@ -161,7 +159,7 @@ void model::cell_parser(string cell_data){
 
 	stringstream ssin(cell_data);
 	int i = 0;
-	while(ssin.good() && i < 10){
+	while(ssin.good() && i < 12){
 		string word;
 		ssin >> word;
 		words.push_back(word);
@@ -196,7 +194,6 @@ void model::cell_parser(string cell_data){
 		stringstream func(words[i+4]);
 		int a;
 		func >> a;
-
 		vertices_ID.push_back(a);
 
 		//cout << vertices_ID[i] << " vertices ID!!! \n";
@@ -215,6 +212,7 @@ void model::cell_parser(string cell_data){
 		//cout << vertices_ID[i] << " \n" ;
 		for(int x = 0; x < list_of_vertexes.size(); x++){
 			if(vertices_ID[i] == (int) list_of_vertexes[x].get('i')){
+				
 				vertices.push_back(list_of_vertexes[x]);  
 				z++;
 			}
@@ -266,6 +264,10 @@ deque<cell> model::get_list_of_cells(){
 
 deque<Vector> model::get_list_of_vertices(){
 	return list_of_vertexes;
+}
+
+deque<material> model::get_list_of_materials(){
+	return list_of_materials;
 }
 
 int model::get_material_num(){

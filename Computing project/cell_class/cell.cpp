@@ -85,7 +85,13 @@ cell::cell(const cell& a){
 }
 
 cell& cell:: operator=(const cell& a){
-
+	id = a.id;
+	vertices = a.vertices;
+	volume = a.volume;
+	cell_material = a.cell_material;
+	cog = a.cog;
+	weight = a.weight;
+	shape = a.shape;
 	return *this;
 }
 

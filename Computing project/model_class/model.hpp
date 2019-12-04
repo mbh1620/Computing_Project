@@ -84,7 +84,9 @@ public:
 
 	deque<cell> get_list_of_cells();				//Gets deque of cells
 
-	deque<Vector> get_list_of_vertices();				//Gets deque of vertexes
+	deque<Vector> get_list_of_vertices();			//Gets deque of vertexes
+
+	deque<material> get_list_of_materials(); 		//Gets deque of materials
 
 	int get_material_num();							//Get number of total materials in model
 
