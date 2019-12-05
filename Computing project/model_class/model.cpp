@@ -228,6 +228,7 @@ void model::cell_parser(string cell_data){
 		tetrahedron new_tet = tetrahedron(vertices, cell_material); 
 		new_tet.volume_calc();
 		new_tet.cog_calc();
+		new_tet.weight_calc();
 		new_tet.setId(IDint);
 		
 		//new_tet.weight_calc();
@@ -239,6 +240,7 @@ void model::cell_parser(string cell_data){
 		pyramid new_pyramid = pyramid(vertices, cell_material);
 		new_pyramid.volume_calc();
 		new_pyramid.cog_calc();
+		new_pyramid.weight_calc();
 		new_pyramid.setId(IDint);
 		
 		//new_pyramid.weight_calc();
@@ -250,6 +252,7 @@ void model::cell_parser(string cell_data){
 	} else if(shape[0] == 'h'){
 		hexahedron new_hexa = hexahedron(vertices, cell_material);
 		new_hexa.volume_calc();
+		new_hexa.weight_calc();
 		new_hexa.setId(IDint);
 		
 		list_of_cells.push_back(new_hexa);

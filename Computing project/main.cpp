@@ -22,8 +22,6 @@ int main(){
 	
 	model1.saveNewFile("output_file.txt");
 
-	
-
 	renderer renderer1 = renderer(model1);
 	
 	renderer1.open_file();

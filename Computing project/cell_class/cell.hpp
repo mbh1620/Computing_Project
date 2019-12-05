@@ -44,14 +44,14 @@ protected:
 
 	int id;								//unique id
 
+	float volume;						//Volume 
+
 
 private:
 
 //private data
 	
 	std::deque<Vector> vertices;					//Array of vector objects
-
-	float volume;						//Volume 	
 
 	Vector cog;							//Centre of Gravity
 
@@ -102,7 +102,7 @@ public:
 
 	//------------------------ calulation functions --------------------------
 	
-	virtual void weight_calc();			//Function to calculate weight. Virtual because it may need redefining based on what subclass is used
+	virtual float weight_calc();			//Function to calculate weight. Virtual because it may need redefining based on what subclass is used
 
 	virtual Vector cog_calc();			//Function to calculate Center of gravity
 
@@ -137,7 +137,7 @@ class tetrahedron : public cell
 public:
 	tetrahedron(std::deque<Vector> vertices_in, material _cell_material); 		//constructor for list of vertices
 	
-	//void weight_calc();
+	float weight_calc();
 
 	Vector cog_calc();
 
@@ -157,7 +157,7 @@ class pyramid : public cell
 public:
 	pyramid(std::deque<Vector> vertices_in, material _cell_material);
 
-	//void weight_calc();
+	float weight_calc();
 
 	Vector cog_calc();
 
@@ -176,7 +176,7 @@ class hexahedron : public cell
 public:
 	hexahedron(std::deque<Vector> vertices_in, material _cell_material);
 
-	//void weight_calc();
+	float weight_calc();
 
 	Vector cog_calc();
 

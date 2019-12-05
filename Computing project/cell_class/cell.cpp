@@ -127,9 +127,10 @@ void cell::set_vertices(std::deque<Vector> _vertices){
 	vertices = _vertices;
 }
 
-void cell::weight_calc(){
+float cell::weight_calc(){
 	//Code for calculating the weight
 	//Volume * density
+	return weight;
 	
 }
 
@@ -161,6 +162,22 @@ tetrahedron::tetrahedron(std::deque<Vector> vertices_in, material _cell_material
 	shape='t';
 
 	
+}
+
+float tetrahedron::weight_calc(){
+
+	//Get the density from the material of the cell
+	float cell_density = cell_material.getDensity();
+
+	//Multiply the cell density by the cell volume to get cell_weight;
+
+	float cell_weight = cell_density * volume;
+
+	set_weight(cell_weight);
+
+	return(cell_weight);
+
+
 }
 
 Vector tetrahedron::cog_calc(){
@@ -234,6 +251,22 @@ pyramid::pyramid(std::deque<Vector> vertices_in, material _cell_material){
 	set_vertices(vertices_in);
 	cell_material = _cell_material;
 	shape = 'p';
+}
+
+float pyramid::weight_calc(){
+
+	//Get the density from the material of the cell
+	float cell_density = cell_material.getDensity();
+
+	//Multiply the cell density by the cell volume to get cell_weight;
+
+	float cell_weight = cell_density * volume;
+
+	set_weight(cell_weight);
+
+	return(cell_weight);
+
+
 }
 
 Vector pyramid::cog_calc(){
@@ -320,6 +353,22 @@ hexahedron::hexahedron(std::deque<Vector> vertices_in, material _cell_material){
 	set_vertices(vertices_in);
 	cell_material = _cell_material;
 	shape = 'h';
+}
+
+float hexahedron::weight_calc(){
+
+	//Get the density from the material of the cell
+	float cell_density = cell_material.getDensity();
+
+	//Multiply the cell density by the cell volume to get cell_weight;
+
+	float cell_weight = cell_density * volume;
+
+	set_weight(cell_weight);
+
+	return(cell_weight);
+
+
 }
 
 Vector hexahedron::cog_calc(){
