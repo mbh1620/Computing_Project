@@ -108,6 +108,18 @@ const hexas = [
 makeInstanceh(geometry_h0, 0xb87373, 0),
 
 ];
+function makeInstancep(geometry, color, x) {
+const material = new THREE.MeshBasicMaterial({color});
+const pyra = new THREE.Mesh(geometry, material);
+scene.add(pyra);
+pyra.position.x = x;
+return pyra;
+}
+
+
+const pyramids = [
+
+];
 function resizeRendererToDisplaySize(renderer) {
 const canvas = renderer.domElement;
 const width = canvas.clientWidth;

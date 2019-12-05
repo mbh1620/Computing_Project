@@ -22,6 +22,8 @@ int main(){
 	
 	model1.saveNewFile("output_file.txt");
 
+	
+
 	renderer renderer1 = renderer(model1);
 	
 	renderer1.open_file();
@@ -31,6 +33,8 @@ int main(){
 	renderer1.file_tetrahedrons();
 
 	renderer1.file_hexahedrons();
+
+	renderer1.file_pyramids();
 
 	renderer1.file_end();
 

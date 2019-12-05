@@ -1,14 +1,24 @@
 <html>
   <head>
     <title>3D Model Viewer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
   </head>
   <body>
    
     <h1 style="font-family: helvetica">3D Model Viewer</h1>
 
-    <canvas id="c" style="height:600;width:auto"></canvas>
+    <canvas id="c" style="display:inline;height:600;width:auto"></canvas>
+    <ul style="display:inline;">
+    <li><input type="checkbox" > Wireframe</li>
+    <li><input type="checkbox" > Centre of Gravity</li>
+    <li><input type="checkbox" > Weight</li>
+    </ul>
   </br>
+    
+    
+
+
+
     <label style="font-family: helvetica">Choose file to upload</label>
     <input type="file">
     <h3>Materials</h3>
@@ -22,8 +32,8 @@
     <ul>
       <li>
     </ul>
-    <script src="js/three.js"></script>
-    <script src="js/OrbitControls.js"></script>
+    <script src="./three.js"></script>
+    <script src="./OrbitControls.js"></script>
 
     <script>
     

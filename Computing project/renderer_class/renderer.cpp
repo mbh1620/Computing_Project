@@ -261,6 +261,75 @@ void renderer::file_hexahedrons(){
 
 void renderer::file_pyramids(){
   //For all the pyramids in the model send their information to the render file
+  string data;
+
+  //For all the pyramids in the model send their information to the render file
+  //Create a list of pyramids in the model 
+  deque<cell> list_of_pyramids;
+  for(int i = 0; i < the_model.get_list_of_cells().size(); i++){
+    if(the_model.get_list_of_cells()[i].get_shape() == 'p'){
+      list_of_pyramids.push_back(the_model.get_list_of_cells()[i]);
+    }
+  }
+
+
+  for(int i = 0; i < list_of_pyramids.size(); i++){
+
+    outfile << "const geometry_p" << i <<" = new THREE.Geometry();\n"
+  "geometry_p" << i <<".vertices.push(\n";
+
+  //Extract the information about the hexahedrons
+
+  /* Extract the vertices from the hexahedrons */
+
+  deque<Vector> vertices_from_pyramids;
+
+  vertices_from_pyramids = list_of_pyramids[i].get_vertices();
+
+    for(int z = 0; z < vertices_from_pyramids.size(); z++){
+      outfile << "new THREE.Vector3("<< vertices_from_pyramids[z].get('x') <<","<< vertices_from_pyramids[z].get('y') << "," << vertices_from_pyramids[z].get('z') << "),  // 0\n";
+    
+    }
+
+    data = ");\n";
+
+    outfile << data << endl;
+
+    outfile << "geometry_p"<<i<<".faces.push(\n"
+     "// front\n"
+     "new THREE.Face3(0, 1, 3),\n"
+     "// right\n"
+     "new THREE.Face3(1, 2, 3),\n"
+     "// back\n"
+     "new THREE.Face3(2, 3, 4),\n"
+     "// left\n"
+     "new THREE.Face3(4, 0, 3),\n"
+     "// bottom\n"
+     "new THREE.Face3(0, 1, 2),\n"
+     "new THREE.Face3(2, 0, 4),\n"
+    ");\n";
+  }
+
+  data = "function makeInstancep(geometry, color, x) {\n"
+    "const material = new THREE.MeshBasicMaterial({color});\n"
+
+    "const pyra = new THREE.Mesh(geometry, material);\n"
+    "scene.add(pyra);\n"
+
+    "pyra.position.x = x;\n"
+    "return pyra;\n"
+  "}\n"
+  "\n"
+  "\n"
+  "const pyramids = [\n";
+
+  outfile << data << endl;
+
+  for( int a = 0; a < list_of_pyramids.size(); a++){
+    outfile << "makeInstancep(geometry_p"<< a <<", 0x" << list_of_pyramids[a].get_material().getColour() << ", 0),\n" <<endl;
+  }
+
+  outfile << "];\n";
 
 }
 
