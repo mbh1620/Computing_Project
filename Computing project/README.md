@@ -1,3 +1,8 @@
+How this project works
+
+The executable gets made and then when the executable is run the .html file is created the render.html is where the model gets rendered.
+
+
 CMake has now been added
 
 To build and run:
