@@ -14,13 +14,15 @@ float volume_of_tetra(Vector vertices[]){
 	Vector y = b-d;
 	Vector z = c-d;
 
+
+
 	Vector ycrossz = y.cross(z);
 
 	float volume = x.dot(ycrossz);
 
 		volume = pow(volume, 2);
 		volume = sqrt(volume)/6; 
-
+	
 	return volume;
 
 
@@ -404,11 +406,11 @@ float hexahedron::volume_calc(){
 
 		Split the hexahedron into 5 tetrahedrons, calculate the volume of the 5 tetrahedrons and then add the volumes together.
 
-		Tetrahedron 1 = (0,2,3,5)
-		Tetrahedron 2 = (0,1,7,5)
-		Tetrahedron 3 = (0,2,3,7)
-		Tetrahedron 4 = (0,5,7,4)
-		Tetrahedron 5 = (2,5,7,6)
+		Tetrahedron 1 = (0,3,6,2)
+		Tetrahedron 2 = (5,3,6,7)
+		Tetrahedron 3 = (0,1,4,3)
+		Tetrahedron 4 = (6,4,5,0)
+		Tetrahedron 5 = (3,0,5,6) the volume of the inside volume is twice the outer tetrahedrons
 
 		*/
 
@@ -418,11 +420,11 @@ float hexahedron::volume_calc(){
 
 		//Define all the tetrahedrons by their vertices
 
-		Vector Tetra_1[] = {points[0], points[2], points[3], points[5]};
-		Vector Tetra_2[] = {points[0], points[1], points[7], points[5]};
-		Vector Tetra_3[] = {points[0], points[2], points[3], points[7]};
-		Vector Tetra_4[] = {points[0], points[5], points[7], points[4]};
-		Vector Tetra_5[] = {points[2], points[5], points[7], points[6]};
+		Vector Tetra_1[] = {points[0], points[3], points[6], points[2]};
+		Vector Tetra_2[] = {points[5], points[3], points[6], points[7]};
+		Vector Tetra_3[] = {points[0], points[1], points[4], points[3]};
+		Vector Tetra_4[] = {points[6], points[4], points[5], points[0]};
+		Vector Tetra_5[] = {points[3], points[0], points[5], points[6]};
 
 		//Perform the volume of tetra function on all of the tetras
 
@@ -431,7 +433,7 @@ float hexahedron::volume_calc(){
 		float vol_tet_3 = volume_of_tetra(Tetra_3);
 		float vol_tet_4 = volume_of_tetra(Tetra_4);
 		float vol_tet_5 = volume_of_tetra(Tetra_5);
-
+		
 		//Sum all of the volumes to get the total volume of the hexahedron
 
 		set_volume(vol_tet_1 + vol_tet_2 + vol_tet_3 + vol_tet_4 + vol_tet_5);

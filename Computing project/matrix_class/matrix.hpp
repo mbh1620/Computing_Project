@@ -57,6 +57,8 @@ public:
 
 	matrix& operator=(const matrix& a);			// Assignment Operator
 
+	
+
 };
 
 matrix::matrix(int first, int second_dimension, float data[]){
