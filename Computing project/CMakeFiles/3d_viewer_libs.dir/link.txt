@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc lib3d_viewer_libs.a  CMakeFiles/3d_viewer_libs.dir/cell_class/cell.cpp.o CMakeFiles/3d_viewer_libs.dir/material_class/material.cpp.o CMakeFiles/3d_viewer_libs.dir/model_class/model.cpp.o CMakeFiles/3d_viewer_libs.dir/vector_class/vector.cpp.o CMakeFiles/3d_viewer_libs.dir/renderer_class/renderer.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib lib3d_viewer_libs.a

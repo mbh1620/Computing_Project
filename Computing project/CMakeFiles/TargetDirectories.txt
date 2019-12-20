@@ -1,4 +1,0 @@
-/Users/matthaywood/Desktop/Computing_Project/Computing project/CMakeFiles/rebuild_cache.dir
-/Users/matthaywood/Desktop/Computing_Project/Computing project/CMakeFiles/edit_cache.dir
-/Users/matthaywood/Desktop/Computing_Project/Computing project/CMakeFiles/3d_viewer.dir
-/Users/matthaywood/Desktop/Computing_Project/Computing project/CMakeFiles/3d_viewer_libs.dir
