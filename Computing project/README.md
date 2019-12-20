@@ -9,5 +9,6 @@ The build files need to be in the same directory as the input and output files o
 
 Also to run the executable, it needs to be run from the command line.
 
-Then to see the gui click on "render.html"
+Then to run the gui click on "render.html"
+-
 
