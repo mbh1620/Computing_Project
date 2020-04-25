@@ -4,9 +4,15 @@
 #include <vtkRenderWindow.h>
 #include <string>
 #include <vtkRenderer.h>
+#include <vtkTransform.h>
 
 #include <vtkNew.h>
 #include <../renderer_class/renderer.hpp>
+
+#include <vtkMassProperties.h>
+#include <vtkTriangleFilter.h>
+#include <vtkFillHolesFilter.h>
+#include <vtkPolyDataNormals.h>
 
 #include <vtkPyramid.h>
 #include <vtkTetra.h>
@@ -23,11 +29,20 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QFile>
+#include <QStringListModel>
+#include <QStringList>
 #include <vtkUnstructuredGrid.h>
 #include <iostream>
 #include <vtkAppendFilter.h>
 
 MainWindow::MainWindow(QWidget *parent, std::string Filename) : QMainWindow(parent), ui(new Ui::MainWindow) {
+
+  //iniatialize the actor array to null
+
+  //Set item_length
+ 
+
+
     // standard call to setup Qt UI (same as previously)
 ui->setupUi( this );
         // Now need to create a VTK render window and link it to the QtVTK widget
@@ -36,6 +51,10 @@ ui->setupUi( this );
 // note that vtkWidget is the name I gave to my QtVTKOpenGLWidget in Qt // creator
   
 std::string inputFilename = Filename;
+
+QString file_name = QString::fromStdString(inputFilename);
+
+this->on_file_add(file_name);
 
 models.push_back(Filename);
 
@@ -49,9 +68,8 @@ reader =
     vtkSmartPointer<vtkPolyDataMapper>::New();
   mapper->SetInputConnection(reader->GetOutputPort());
 
-  actor =
-    vtkSmartPointer<vtkActor>::New();
-  actor->SetMapper(mapper);
+  actor.push_back(vtkSmartPointer<vtkActor>::New());
+  actor.back()->SetMapper(mapper);
 
   renderer =
     vtkSmartPointer<vtkRenderer>::New();
@@ -60,16 +78,16 @@ reader =
   
 ui->qvtkWidget->SetRenderWindow( renderWindow );
 ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
-  renderer->AddActor(actor);
+  renderer->AddActor(actor.back());
   renderer->SetBackground(.3, .6, .3); // Background color green
 
   colors =
                             vtkSmartPointer<vtkNamedColors>::New();
-        actor->GetProperty()->SetColor( colors->GetColor3d("Blue").GetData() );
+        actor.back()->GetProperty()->SetColor( colors->GetColor3d("Blue").GetData() );
 
   renderWindow->Render();
   renderWindowInteractor->Start();
-  renderer->AddActor(actor);
+  renderer->AddActor(actor.back());
         renderer->SetBackground( colors->GetColor3d("Silver").GetData() );
         // Setup the renderers's camera
         renderer->ResetCamera();
@@ -80,6 +98,14 @@ ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
         connect(this->ui->actionLoad, SIGNAL(triggered()), this, SLOT(openFile()));
         connect(this->ui->cross_section_box, SIGNAL(clicked(bool)), this, SLOT(Cross_Section_Analysis(bool)));
         connect(this->ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(Cross_Section_Analysis_Width(int)));
+        connect(this->ui->pushButton, SIGNAL(released()), this, SLOT(openFile()));
+        connect(this->ui->pushButton_2, SIGNAL(released()), this, SLOT(delete_model()));
+        connect(this->ui->pushButton_3, SIGNAL(released()), this, SLOT(transform()));
+
+        connect(this->ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(model_details()));
+        
+
+
 }
 
 MainWindow::~MainWindow()
@@ -88,6 +114,7 @@ delete ui; }
 
 void MainWindow::openFile() 
 { 
+        
 
          QString fileName = QFileDialog::getOpenFileName(this, 
          tr("Open  file with model/mesh"), "", 
@@ -95,7 +122,7 @@ void MainWindow::openFile()
 
          //Find filetype 
 
-         
+         this->on_file_add(fileName);
 
 
 
@@ -146,24 +173,31 @@ void MainWindow::openFile()
   mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
   mapper->SetInputConnection(reader->GetOutputPort());
 
-  actor = vtkSmartPointer<vtkActor>::New();
-  actor->SetMapper(mapper);
+  
+
+  actor.push_back(vtkSmartPointer<vtkActor>::New());
+  actor.back()->SetMapper(mapper);
 
   renderer = vtkSmartPointer<vtkRenderer>::New();
    //
   renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
 
   colors = vtkSmartPointer<vtkNamedColors>::New();
-  actor->GetProperty()->SetColor( colors->GetColor3d("Blue").GetData() );
+  actor.back()->GetProperty()->SetColor( colors->GetColor3d("Blue").GetData() );
   
 ui->qvtkWidget->SetRenderWindow( renderWindow );
 ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
-  renderer->AddActor(actor);
+  renderer->AddActor(actor.back());
   //renderer->SetBackground(.3, .6, .3); // Background color green
 
   renderWindow->Render();
   // renderWindowInteractor->Start();
-  renderer->AddActor(actor);
+
+  //Add all actors
+  for(int i = 0; i < actor.size(); i++){
+    renderer->AddActor(actor[i]);
+  }
+
         renderer->SetBackground( colors->GetColor3d("Silver").GetData() );
         // Setup the renderers's camera
         renderer->ResetCamera();
@@ -172,6 +206,7 @@ ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
         renderer->ResetCameraClippingRange();
 
                 //reader->Delete(); 
+        
 } 
 }
 
@@ -186,6 +221,8 @@ void MainWindow::openCustomFile(std::string fileName){
   std::string filename = fileName;
 
   model1.readInFile(filename);
+
+
 
 	//Set up arrays to hold vtk objects 
 
@@ -320,14 +357,16 @@ void MainWindow::openCustomFile(std::string fileName){
 
   mapper->SetInputData(combined);
 
-  vtkSmartPointer<vtkActor> actor = vtkSmartPointer<vtkActor>::New();
-  actor->SetMapper(mapper);
-  actor->GetProperty()->SetColor(colors->GetColor3d("Tomato").GetData());
+  
+
+  actor.push_back(vtkSmartPointer<vtkActor>::New());
+  actor.back()->SetMapper(mapper);
+  actor.back()->GetProperty()->SetColor(colors->GetColor3d("Tomato").GetData());
   
 
   //Create a renderer, render window and interactor
 
-  vtkSmartPointer<vtkRenderer> renderer = vtkSmartPointer<vtkRenderer>::New();
+  renderer = vtkSmartPointer<vtkRenderer>::New();
   
 
   renderWindow->AddRenderer(renderer);
@@ -336,7 +375,12 @@ void MainWindow::openCustomFile(std::string fileName){
   ui->qvtkWidget->SetRenderWindow( renderWindow );
   ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
   
-  renderer->AddActor(actor);
+  //Add all actors
+  for(int i = 0; i < actor.size(); i++){
+    renderer->AddActor(actor[i]);
+  }
+
+  
 
   //Create a view
 
@@ -395,8 +439,14 @@ if (checked){
 
 
       } else {
+        
         renderer->RemoveAllViewProps();
-        renderer->AddActor(actor);
+        
+        for(int i = 0; i < actor.size(); i++){
+          renderer->AddActor(actor[i]);
+        }
+        
+
         is_checked = checked;
         ui->horizontalSlider->setValue(0);
         ui->qvtkWidget->GetRenderWindow()->Render();
@@ -453,8 +503,133 @@ void MainWindow::Cross_Section_Analysis_Width(int value){
 
 }
         
+void MainWindow::on_file_add(QString filename)
+{
+	std::string fileName = filename.toStdString();
+	int pos;
+	pos = fileName.find_last_of("/");
+	fileName = fileName.substr(pos+1);
+	filename = QString::fromStdString(fileName);
+	ui->listWidget->addItem(filename);
 
 
 
+}
+
+void MainWindow::delete_model()
+{
+  
+  int number = ui->listWidget->currentRow();
+  
+	qDeleteAll(ui->listWidget->selectedItems());
+  renderer->RemoveActor(actor[number]);
+
+  actor.erase(actor.begin()+number);
+  
+  ui->qvtkWidget->GetRenderWindow()->Render();
+}
+
+void MainWindow::transform()
+{
+
+  //Get the actor of the object which is currently highlighted in the listView
+
+  int number = ui->listWidget->currentRow();
+
+  vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
+  transform->PostMultiply();
+     //lineEdit_6
+  QString x_trans = ui->lineEdit->text();//lineEdit
+  QString y_trans = ui->lineEdit_2->text();//lineEdit_2
+  QString z_trans = ui->lineEdit_3->text();//lineEdit_3
+  double x_trans_double = x_trans.toDouble();
+  double y_trans_double = y_trans.toDouble();
+  double z_trans_double = z_trans.toDouble();
 
 
+
+  QString x_rot = ui->lineEdit_4->text();
+  QString y_rot = ui->lineEdit_5->text();
+  QString z_rot = ui->lineEdit_6->text();
+  double x_rot_double = x_rot.toDouble();
+  double y_rot_double = y_rot.toDouble();
+  double z_rot_double = z_rot.toDouble();
+
+  transform->RotateX(x_rot_double);   //lineEdit_4
+  transform->RotateY(y_rot_double);   //lineEdit_5
+  transform->RotateZ(z_rot_double);
+
+  transform->Translate(x_trans_double, y_trans_double, z_trans_double);
+
+  actor[number]->SetUserTransform(transform);
+  ui->qvtkWidget->GetRenderWindow()->Render();
+
+
+}
+
+void MainWindow::model_details(){
+
+  //Get the model number which was clicked 
+
+  int number = ui -> listWidget -> currentRow();
+
+  //Turn actor to polydata
+
+  vtkSmartPointer<vtkPolyData> polyData = vtkPolyData::SafeDownCast(actor[number]->GetMapper()->GetInputAsDataSet());
+
+  //Set up fillholesfilter, trianglefilters.
+
+  vtkSmartPointer<vtkFillHolesFilter> fillHolesFilter = vtkSmartPointer<vtkFillHolesFilter>::New();
+
+  fillHolesFilter->SetInputData(polyData);
+
+  fillHolesFilter->SetHoleSize(1000.0);
+
+
+  vtkSmartPointer<vtkTriangleFilter> triangleFilter = vtkSmartPointer<vtkTriangleFilter>::New();
+
+  triangleFilter->SetInputConnection(fillHolesFilter->GetOutputPort());
+
+  vtkSmartPointer<vtkPolyDataNormals> normals = vtkSmartPointer<vtkPolyDataNormals>::New();
+
+  normals->SetInputConnection(triangleFilter->GetOutputPort());
+
+  normals->ConsistencyOn();
+
+  normals->SplittingOff();
+
+  //Create Mass properties 
+
+  vtkSmartPointer<vtkMassProperties> massProperties = vtkSmartPointer<vtkMassProperties>::New();
+  massProperties->SetInputConnection(normals->GetOutputPort());
+  massProperties->Update();
+
+  //Mass     label_18
+  //Material label_19
+  //Volume   label_20
+  //Density  label_21
+
+  //Calculate the models volume and change volume label
+  //Update the label with volume 
+
+  float volume = massProperties->GetVolume();
+  QString Qvolume = QString::number(volume);
+  ui->label_20->setText(Qvolume);
+
+  
+  //Calculate the models weight
+
+  float weight = massProperties->GetKz();
+  QString Qweight = QString::number(weight);
+  ui->label_18->setText(Qweight);
+
+  //Calculate the models Surface Area
+
+  float SurfaceArea = massProperties->GetSurfaceArea();
+  QString QSurfaceArea = QString::number(SurfaceArea);
+  ui->label_21->setText(QSurfaceArea);
+
+  //Calculate the models material
+
+
+}

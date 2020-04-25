@@ -29,7 +29,7 @@ vtkSmartPointer<vtkSTLReader> reader;
 
 vtkSmartPointer<vtkPolyDataMapper> mapper;
 
-vtkSmartPointer<vtkActor> actor;
+std::deque<vtkSmartPointer<vtkActor>> actor;
 
 vtkSmartPointer<vtkRenderer> renderer;
 
@@ -45,11 +45,23 @@ bool is_checked;
 
 void openCustomFile(std::string fileName); //Function for opening a proprietry file format and using own classes
 
+int item_length = 0;
+
+int check_item_array_length();
+
 public slots:
     void openFile();
+    void on_file_add(QString filename);
 
     void Cross_Section_Analysis(bool checked);
+    
     void Cross_Section_Analysis_Width(int value);
+
+    void transform();
+
+    void delete_model();
+
+    void model_details();
 
 private:
 Ui::MainWindow * ui;
