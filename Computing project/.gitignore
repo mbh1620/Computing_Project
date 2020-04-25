@@ -4,4 +4,5 @@
 *.exe
 *.o
 *.so
+*.DS_Store
 build/
