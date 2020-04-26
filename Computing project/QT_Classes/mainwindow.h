@@ -13,6 +13,7 @@
 #include <vtkGenericOpenGLRenderWindow.h>
 #include <vtkNamedColors.h>
 #include <deque>
+#include <vtkDistanceWidget.h>
 
 #include <QMainWindow>
 namespace Ui { class MainWindow; }
@@ -39,6 +40,8 @@ vtkSmartPointer<vtkNamedColors> colors;
 
 vtkNew<vtkPlane> cutPlane; 
 
+vtkSmartPointer<vtkDistanceWidget> distanceWidget;
+
 std::deque<std::string> models;
 
 bool is_checked;
@@ -49,11 +52,16 @@ int item_length = 0;
 
 int check_item_array_length();
 
+void disable_distance_widget();
+
 public slots:
     void openFile();
+
     void on_file_add(QString filename);
 
     void Cross_Section_Analysis(bool checked);
+
+    void enable_distance_widget(bool checked);
     
     void Cross_Section_Analysis_Width(int value);
 
@@ -62,6 +70,10 @@ public slots:
     void delete_model();
 
     void model_details();
+
+    void changeCamera();
+
+    void set_bg_colour();
 
 private:
 Ui::MainWindow * ui;

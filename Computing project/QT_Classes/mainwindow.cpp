@@ -6,6 +6,8 @@
 #include <vtkRenderer.h>
 #include <vtkTransform.h>
 
+#include <vtkInteractorStyleTrackballCamera.h>
+
 #include <vtkNew.h>
 #include <../renderer_class/renderer.hpp>
 
@@ -13,6 +15,9 @@
 #include <vtkTriangleFilter.h>
 #include <vtkFillHolesFilter.h>
 #include <vtkPolyDataNormals.h>
+
+#include <vtkDistanceRepresentation.h>
+#include <vtkDistanceWidget.h>
 
 #include <vtkPyramid.h>
 #include <vtkTetra.h>
@@ -34,6 +39,7 @@
 #include <vtkUnstructuredGrid.h>
 #include <iostream>
 #include <vtkAppendFilter.h>
+
 
 MainWindow::MainWindow(QWidget *parent, std::string Filename) : QMainWindow(parent), ui(new Ui::MainWindow) {
 
@@ -58,51 +64,111 @@ this->on_file_add(file_name);
 
 models.push_back(Filename);
 
-reader =
-    vtkSmartPointer<vtkSTLReader>::New();
-  reader->SetFileName(inputFilename.c_str());
-  reader->Update();
+reader = vtkSmartPointer<vtkSTLReader>::New();
+reader->SetFileName(inputFilename.c_str());
+reader->Update();
 
   // Visualize
-  mapper =
-    vtkSmartPointer<vtkPolyDataMapper>::New();
-  mapper->SetInputConnection(reader->GetOutputPort());
+mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+mapper->SetInputConnection(reader->GetOutputPort());
 
-  actor.push_back(vtkSmartPointer<vtkActor>::New());
-  actor.back()->SetMapper(mapper);
+actor.push_back(vtkSmartPointer<vtkActor>::New());
+actor.back()->SetMapper(mapper);
 
-  renderer =
-    vtkSmartPointer<vtkRenderer>::New();
-   //
-  renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+renderer = vtkSmartPointer<vtkRenderer>::New();
+renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
   
 ui->qvtkWidget->SetRenderWindow( renderWindow );
 ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
-  renderer->AddActor(actor.back());
-  renderer->SetBackground(.3, .6, .3); // Background color green
+//renderWindowInteractor->SetRenderWindow(ui->qvtkWidget->GetRenderWindow());
 
-  colors =
-                            vtkSmartPointer<vtkNamedColors>::New();
-        actor.back()->GetProperty()->SetColor( colors->GetColor3d("Blue").GetData() );
+renderer->AddActor(actor.back());
+renderer->SetBackground(.3, .6, .3); // Background color green
 
-  renderWindow->Render();
-  renderWindowInteractor->Start();
-  renderer->AddActor(actor.back());
-        renderer->SetBackground( colors->GetColor3d("Silver").GetData() );
-        // Setup the renderers's camera
-        renderer->ResetCamera();
-        renderer->GetActiveCamera()->Azimuth(30);
-        renderer->GetActiveCamera()->Elevation(30);
-        renderer->ResetCameraClippingRange();
+colors = vtkSmartPointer<vtkNamedColors>::New();
+actor.back()->GetProperty()->SetColor( colors->GetColor3d("Blue").GetData() );
 
-        connect(this->ui->actionLoad, SIGNAL(triggered()), this, SLOT(openFile()));
-        connect(this->ui->cross_section_box, SIGNAL(clicked(bool)), this, SLOT(Cross_Section_Analysis(bool)));
-        connect(this->ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(Cross_Section_Analysis_Width(int)));
-        connect(this->ui->pushButton, SIGNAL(released()), this, SLOT(openFile()));
-        connect(this->ui->pushButton_2, SIGNAL(released()), this, SLOT(delete_model()));
-        connect(this->ui->pushButton_3, SIGNAL(released()), this, SLOT(transform()));
+renderWindow->Render();
+renderWindowInteractor->Start();
+renderer->AddActor(actor.back());
+renderer->SetBackground( colors->GetColor3d("Silver").GetData() );
+// Setup the renderers's camera
+renderer->ResetCamera();
+renderer->GetActiveCamera()->Azimuth(30);
+renderer->GetActiveCamera()->Elevation(30);
+renderer->ResetCameraClippingRange();
 
-        connect(this->ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(model_details()));
+
+
+//renderWindowInteractor->SetRenderWindow (renderWindow);
+renderWindow->Render();
+
+vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = 
+vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); //like paraview
+  
+renderWindowInteractor->SetInteractorStyle( style );
+
+
+//Fill Background Color Combo Box:
+
+ui->comboBox->addItem("Silver");
+ui->comboBox->addItem("Red");
+ui->comboBox->addItem("White");
+ui->comboBox->addItem("Yellow");
+ui->comboBox->addItem("Green");
+ui->comboBox->addItem("Blue");
+
+
+        //Set spin boxes to the values of the camera
+
+        /* Camera Position:
+        
+        x = spinBox
+        y = spinBox_2
+        z = spinBox_3
+
+        camera rotation
+
+        x = spinBox_4
+        y = spinBox_5
+        z = spinBox_6
+
+        */
+
+//Camera position
+ui->spinBox->setValue(renderer->GetActiveCamera()->GetPosition()[0]);
+ui->spinBox_2->setValue(renderer->GetActiveCamera()->GetPosition()[1]);
+ui->spinBox_3->setValue(renderer->GetActiveCamera()->GetPosition()[2]);
+//Camera angle 
+
+
+
+//Connecting SLOTS
+
+connect(this->ui->actionLoad, SIGNAL(triggered()), this, SLOT(openFile()));
+connect(this->ui->cross_section_box, SIGNAL(clicked(bool)), this, SLOT(Cross_Section_Analysis(bool)));
+connect(this->ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(Cross_Section_Analysis_Width(int)));
+connect(this->ui->pushButton, SIGNAL(released()), this, SLOT(openFile()));
+connect(this->ui->pushButton_2, SIGNAL(released()), this, SLOT(delete_model()));
+connect(this->ui->pushButton_3, SIGNAL(released()), this, SLOT(transform()));
+
+connect(this->ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(model_details()));
+
+connect(this->ui->checkBox_3, SIGNAL(clicked(bool)), this, SLOT(enable_distance_widget(bool)));
+
+
+//Slots for camera control
+
+connect(this->ui->spinBox, SIGNAL(valueChanged(int)), this, SLOT(changeCamera()));
+connect(this->ui->spinBox_2, SIGNAL(valueChanged(int)), this, SLOT(changeCamera()));
+connect(this->ui->spinBox_3, SIGNAL(valueChanged(int)), this, SLOT(changeCamera()));
+connect(this->ui->spinBox_4, SIGNAL(valueChanged(int)), this, SLOT(changeCamera()));
+connect(this->ui->spinBox_5, SIGNAL(valueChanged(int)), this, SLOT(changeCamera()));
+connect(this->ui->spinBox_6, SIGNAL(valueChanged(int)), this, SLOT(changeCamera()));
+
+//Slot for colour combo box
+
+connect(this->ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(set_bg_colour()));
         
 
 
@@ -633,3 +699,152 @@ void MainWindow::model_details(){
 
 
 }
+
+
+void MainWindow::changeCamera(){
+
+  //Function called when the spin boxes are changed
+
+  //Get all spin box values
+
+  int cam_x = ui->spinBox->value();
+  int cam_y = ui->spinBox_2->value();
+  int cam_z = ui->spinBox_3->value();
+
+  int cam_x_rot = ui->spinBox_4->value();
+  int cam_y_rot = ui->spinBox_5->value();
+  int cam_z_rot = ui->spinBox_6->value();
+
+  //Turn into doubles
+
+  double cam_x_double = (double) cam_x;
+  double cam_y_double = (double) cam_y;
+  double cam_z_double = (double) cam_z;
+
+
+  double cam_x_rot_double = (double) cam_x;
+  double cam_y_rot_double = (double) cam_x;
+  double cam_z_rot_double = (double) cam_x;
+
+
+  renderer->GetActiveCamera()->SetPosition(cam_x_double, cam_y_double, cam_z_double);
+  renderer->GetActiveCamera()->Yaw(cam_z_rot_double);
+  renderer->GetActiveCamera()->Elevation(cam_x_rot_double);
+  renderer->GetActiveCamera()->Pitch(cam_y_rot_double);
+
+
+  ui->qvtkWidget->GetRenderWindow()->Render();
+
+
+}
+
+void MainWindow::enable_distance_widget(bool checked){
+
+  cout << "enable_distance_widget \n";
+
+  if(checked){
+
+  renderWindowInteractor->SetRenderWindow (renderWindow);
+
+  distanceWidget = vtkSmartPointer<vtkDistanceWidget>::New();
+
+  distanceWidget->SetInteractor(renderWindowInteractor);
+  distanceWidget->CreateDefaultRepresentation();
+  static_cast<vtkDistanceRepresentation *>(distanceWidget->GetRepresentation())->SetLabelFormat("%-#6.3g mm");
+
+  distanceWidget->On();
+  
+  
+
+  renderWindow->Render();
+
+  ui->qvtkWidget->GetRenderWindow()->Render();
+
+  
+
+  renderWindowInteractor->Start();
+  
+}else if(!checked){
+  this->disable_distance_widget();
+}
+  
+}
+
+void MainWindow::disable_distance_widget(){
+
+  renderWindowInteractor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
+  renderWindowInteractor->SetRenderWindow (renderWindow);
+
+  vtkSmartPointer<vtkInteractorStyleTrackballCamera> style = vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New(); //like paraview
+  
+  renderWindowInteractor->SetInteractorStyle( style );
+
+  renderWindowInteractor->Start();
+
+
+  distanceWidget->Off();
+
+};
+
+void MainWindow::set_bg_colour(){
+
+int color = ui->comboBox->currentIndex();
+
+/* Colour list:
+
+
+	0: Silver 
+	1: Red
+	2: White
+	3: Yellow 
+	4: Green 
+	5: Blue
+
+*/
+
+string the_colour;
+
+
+switch (color){
+	case 0:
+		the_colour = "silver";
+		break;
+
+	case 1:
+		the_colour = "tomato";
+		break;
+
+	case 2:
+		the_colour = "white";
+		break;
+
+	case 3:
+		the_colour = "yellow";
+		break;
+
+	case 4:
+		the_colour = "green";
+		break;
+
+	case 5:
+		the_colour = "blue";
+		break;
+}
+
+
+renderer->SetBackground( colors->GetColor3d(the_colour).GetData() );
+
+ui->qvtkWidget->GetRenderWindow()->Render();
+
+
+
+}
+
+
+
+
+
+
+
+
+
