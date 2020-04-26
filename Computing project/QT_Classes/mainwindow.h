@@ -8,6 +8,7 @@
 #include <vtkCamera.h>
 #include <vtkPolyData.h>
 #include <vtkPolyDataMapper.h>
+#include <vtkDataSetMapper.h>
 #include <vtkSTLReader.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkGenericOpenGLRenderWindow.h>
@@ -30,6 +31,8 @@ vtkSmartPointer<vtkSTLReader> reader;
 
 vtkSmartPointer<vtkPolyDataMapper> mapper;
 
+vtkSmartPointer<vtkDataSetMapper> mapper2;
+
 std::deque<vtkSmartPointer<vtkActor>> actor;
 
 vtkSmartPointer<vtkRenderer> renderer;
@@ -47,6 +50,8 @@ std::deque<std::string> models;
 bool is_checked;
 
 void openCustomFile(std::string fileName); //Function for opening a proprietry file format and using own classes
+
+void Save_As_STL_File();
 
 int item_length = 0;
 
@@ -74,6 +79,10 @@ public slots:
     void changeCamera();
 
     void set_bg_colour();
+
+    void Set_Model_Color();
+
+    void Reset_Camera();
 
 private:
 Ui::MainWindow * ui;

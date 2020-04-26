@@ -6,6 +6,8 @@
 #include <vtkRenderer.h>
 #include <vtkTransform.h>
 
+#include <vtkDataSetMapper.h>
+
 #include <vtkInteractorStyleTrackballCamera.h>
 
 #include <vtkNew.h>
@@ -15,6 +17,8 @@
 #include <vtkTriangleFilter.h>
 #include <vtkFillHolesFilter.h>
 #include <vtkPolyDataNormals.h>
+#include <vtkGeometryFilter.h>
+
 
 #include <vtkDistanceRepresentation.h>
 #include <vtkDistanceWidget.h>
@@ -119,6 +123,15 @@ ui->comboBox->addItem("Green");
 ui->comboBox->addItem("Blue");
 
 
+
+ui->comboBox_2->addItem("Silver");
+ui->comboBox_2->addItem("Red");
+ui->comboBox_2->addItem("White");
+ui->comboBox_2->addItem("Yellow");
+ui->comboBox_2->addItem("Green");
+ui->comboBox_2->addItem("Blue");
+
+
         //Set spin boxes to the values of the camera
 
         /* Camera Position:
@@ -169,6 +182,10 @@ connect(this->ui->spinBox_6, SIGNAL(valueChanged(int)), this, SLOT(changeCamera(
 //Slot for colour combo box
 
 connect(this->ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(set_bg_colour()));
+
+connect(this->ui->comboBox_2, SIGNAL(currentIndexChanged(int)), this, SLOT(Set_Model_Color()));
+
+connect(this->ui->pushButton_5, SIGNAL(released()), this, SLOT(Reset_Camera()));
         
 
 
@@ -419,11 +436,16 @@ void MainWindow::openCustomFile(std::string fileName){
 
   //Create an actor and mapper 
   vtkSmartPointer<vtkNamedColors> colors = vtkSmartPointer<vtkNamedColors>::New();
-  vtkSmartPointer<vtkDataSetMapper> mapper = vtkSmartPointer<vtkDataSetMapper>::New();
 
-  mapper->SetInputData(combined);
+  vtkSmartPointer<vtkGeometryFilter> geometryfilter = vtkSmartPointer<vtkGeometryFilter>::New();
 
-  
+  geometryfilter->SetInputData(combined);
+
+  geometryfilter->Update();
+
+  vtkPolyData* polyData = geometryfilter->GetOutput();
+
+  mapper->SetInputData(polyData);  
 
   actor.push_back(vtkSmartPointer<vtkActor>::New());
   actor.back()->SetMapper(mapper);
@@ -639,6 +661,8 @@ void MainWindow::model_details(){
 
   int number = ui -> listWidget -> currentRow();
 
+  //If .STL file is used
+
   //Turn actor to polydata
 
   vtkSmartPointer<vtkPolyData> polyData = vtkPolyData::SafeDownCast(actor[number]->GetMapper()->GetInputAsDataSet());
@@ -695,8 +719,51 @@ void MainWindow::model_details(){
   QString QSurfaceArea = QString::number(SurfaceArea);
   ui->label_21->setText(QSurfaceArea);
 
-  //Calculate the models material
+  //Find the models colour and update the comboBox_2 with models colour
 
+  //Find color of actor[number]
+
+  /*List of Colors and names:
+
+    0Silver -          0.752941 0.752941  0.752941
+    1Red(tomato) -     1        0.3882350 0.278431
+    2White -           1        1         1
+    3Yellow -          1        1         0
+    4Green -           0        0.5019610 0
+    5Blue -            0        0         1
+
+
+  */
+
+  const vtkStdString colorName;
+
+  double *color = actor[number]->GetProperty()->GetColor();
+
+  cout << color[0] << color[1] << color[2] << "\n";
+
+  int index; 
+
+  if(color[0] == 0.752941 && color[1] == 0.752941 && color[2] == 0.752941){
+    index = 0;
+  }
+  else if ( color[0] == 1 && color[1] == 0.3882350 && color[2] == 0.278431){
+    index = 1;
+  }
+  else if ( color[0] == 1 && color[1] == 1 && color[2] == 1){
+    index = 2;
+  }
+  else if ( color[0] == 1 && color[1] == 1 && color[2] == 0){
+    index = 3;
+  }
+  else if ( color[0] == 0 && color[1] == 0.5019610 && color[2] == 0){
+    index = 4;
+  }
+  else if ( color[0] == 0 && color[1] == 0 && color[2] == 1){
+    index = 5;
+  }
+
+
+  ui->comboBox_2->setCurrentIndex(index);
 
 }
 
@@ -733,8 +800,21 @@ void MainWindow::changeCamera(){
   renderer->GetActiveCamera()->Pitch(cam_y_rot_double);
 
 
+
+
   ui->qvtkWidget->GetRenderWindow()->Render();
 
+
+}
+
+void MainWindow::Reset_Camera(){
+
+  renderer->ResetCamera();
+  renderer->GetActiveCamera()->Azimuth(30);
+  renderer->GetActiveCamera()->Elevation(30);
+  renderer->ResetCameraClippingRange();
+
+  ui->qvtkWidget->GetRenderWindow()->Render();
 
 }
 
@@ -836,6 +916,49 @@ renderer->SetBackground( colors->GetColor3d(the_colour).GetData() );
 
 ui->qvtkWidget->GetRenderWindow()->Render();
 
+}
+
+
+void MainWindow::Set_Model_Color(){
+
+  int number = ui -> listWidget -> currentRow();
+
+  int color = ui->comboBox_2->currentIndex();
+
+  string the_colour;
+
+
+switch (color){
+  case 0:
+    the_colour = "silver";
+    break;
+
+  case 1:
+    the_colour = "tomato";
+    break;
+
+  case 2:
+    the_colour = "white";
+    break;
+
+  case 3:
+    the_colour = "yellow";
+    break;
+
+  case 4:
+    the_colour = "green";
+    break;
+
+  case 5:
+    the_colour = "blue";
+    break;
+}
+  actor[number]->GetProperty()->SetColor(colors->GetColor3d(the_colour).GetData());
+  ui->qvtkWidget->GetRenderWindow()->Render();
+}
+
+
+void MainWindow::Save_As_STL_File(){
 
 
 }
