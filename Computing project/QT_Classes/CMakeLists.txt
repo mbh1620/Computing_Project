@@ -18,8 +18,11 @@ set( CMAKE_AUTOMOC ON )
 set( CMAKE_AUTOUIC ON )
 
 # Find the Qt widgets package. This locates the relevant include and # lib directories, and the necessary static libraries for linking.
+
+
  
 find_package( Qt5Widgets )
+
 set( UIS mainwindow.ui ) 
 qt5_wrap_ui( UI_Srcs ${UIS} )
 
@@ -42,7 +45,7 @@ add_executable( QtVTKExample MACOSX_BUNDLE vtk_renderer.cpp mainwindow.cpp
                     ${QRC_Srcs}
                     )
     # Tell CMake that the executable depends on the Qt::Widget libraries.
-target_link_libraries( QtVTKExample Qt5::Widgets )
+target_link_libraries( QtVTKExample Qt5::Widgets)
     # Tell CMake that the executable depends on the VTK libraries
 target_link_libraries( QtVTKExample ${VTK_LIBRARIES} )
 target_link_libraries( QtVTKExample 3d_viewer_libs)

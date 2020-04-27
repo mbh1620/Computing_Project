@@ -5,7 +5,7 @@
 #include <string>
 #include <vtkRenderer.h>
 #include <vtkTransform.h>
-
+#include <vtkAppendPolyData.h>
 #include <vtkDataSetMapper.h>
 
 #include <vtkInteractorStyleTrackballCamera.h>
@@ -18,10 +18,18 @@
 #include <vtkFillHolesFilter.h>
 #include <vtkPolyDataNormals.h>
 #include <vtkGeometryFilter.h>
+#include <vtkMinimalStandardRandomSequence.h>
+#include <vtkMath.h>
+#include <vtkTransform.h>
+#include <vtkTransformPolyDataFilter.h>
 
+#include <vtkSTLWriter.h>
 
 #include <vtkDistanceRepresentation.h>
 #include <vtkDistanceWidget.h>
+
+#include <vtkCenterOfMass.h>
+#include <vtkArrowSource.h>
 
 #include <vtkPyramid.h>
 #include <vtkTetra.h>
@@ -60,7 +68,7 @@ ui->setupUi( this );
         
 // note that vtkWidget is the name I gave to my QtVTKOpenGLWidget in Qt // creator
   
-std::string inputFilename = Filename;
+std::string inputFilename = "../../Test Objects/Team36Logo.stl";
 
 QString file_name = QString::fromStdString(inputFilename);
 
@@ -155,6 +163,7 @@ ui->spinBox_3->setValue(renderer->GetActiveCamera()->GetPosition()[2]);
 //Camera angle 
 
 
+ui->listWidget->setCurrentRow(0);
 
 //Connecting SLOTS
 
@@ -186,6 +195,19 @@ connect(this->ui->comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(set_bg_
 connect(this->ui->comboBox_2, SIGNAL(currentIndexChanged(int)), this, SLOT(Set_Model_Color()));
 
 connect(this->ui->pushButton_5, SIGNAL(released()), this, SLOT(Reset_Camera()));
+
+
+//Slot for opacity slider
+
+connect(this->ui->horizontalSlider_2, SIGNAL(valueChanged(int)), this, SLOT(Set_Opacity()));
+
+//Slot for COG checkbox
+
+connect(this->ui->checkBox, SIGNAL(clicked(bool)), this, SLOT(show_COG(bool)));
+
+//Slot for save.stl button
+
+connect(this->ui->pushButton_6, SIGNAL(released()), this, SLOT(Save_As_STL_File()));
         
 
 
@@ -197,10 +219,12 @@ delete ui; }
 
 void MainWindow::openFile() 
 { 
+        QDir dir("../../Test Objects");
         
+        QString name = dir.absolutePath();
 
          QString fileName = QFileDialog::getOpenFileName(this, 
-         tr("Open  file with model/mesh"), "", 
+         tr("Open  file with model/mesh"), name, 
          tr("files (*.stl);;All Files (*)")); 
 
          //Find filetype 
@@ -607,14 +631,25 @@ void MainWindow::on_file_add(QString filename)
 void MainWindow::delete_model()
 {
   
-  int number = ui->listWidget->currentRow();
-  
-	qDeleteAll(ui->listWidget->selectedItems());
-  renderer->RemoveActor(actor[number]);
 
-  actor.erase(actor.begin()+number);
+  int number = ui->listWidget->currentRow();
+
+  if(number != -1){
+    qDeleteAll(ui->listWidget->selectedItems());
+    renderer->RemoveActor(actor[number]);
+
+    actor.erase(actor.begin()+number);
   
-  ui->qvtkWidget->GetRenderWindow()->Render();
+    ui->qvtkWidget->GetRenderWindow()->Render();
+  } else {
+
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error","There is nothing to Delete!");
+    messageBox.setFixedSize(500,200);
+
+  }
+
+	
 }
 
 void MainWindow::transform()
@@ -624,7 +659,8 @@ void MainWindow::transform()
 
   int number = ui->listWidget->currentRow();
 
-  vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
+  if (number != -1){
+    vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
   transform->PostMultiply();
      //lineEdit_6
   QString x_trans = ui->lineEdit->text();//lineEdit
@@ -649,8 +685,35 @@ void MainWindow::transform()
 
   transform->Translate(x_trans_double, y_trans_double, z_trans_double);
 
-  actor[number]->SetUserTransform(transform);
+  //actor[number]->SetUserTransform(transform);
+  
+  
+
+
+  //Add a transform filter so that the transform is relayed into the data not just the actor
+
+  vtkSmartPointer<vtkPolyData> polydata = vtkPolyData::SafeDownCast(actor[number]->GetMapper()->GetInputAsDataSet());
+
+  vtkSmartPointer<vtkTransformPolyDataFilter> pdfilter = vtkSmartPointer<vtkTransformPolyDataFilter>::New();
+
+  pdfilter->SetInputData(polydata);
+  pdfilter->SetTransform(transform);
+  pdfilter->Update();
+
+  actor[number]->GetMapper()->SetInputConnection(pdfilter->GetOutputPort());
+
   ui->qvtkWidget->GetRenderWindow()->Render();
+
+
+  } else {
+
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error","Nothing is selected in the model list!");
+    messageBox.setFixedSize(500,200);
+
+  }
+
+  
 
 
 }
@@ -764,6 +827,16 @@ void MainWindow::model_details(){
 
 
   ui->comboBox_2->setCurrentIndex(index);
+
+  //Get Opacity from model then update opacity slider 
+
+  double opacity = actor[number] -> GetProperty()->GetOpacity();
+
+  opacity = opacity * 10;
+
+  ui -> horizontalSlider_2 -> setValue(opacity);
+
+
 
 }
 
@@ -923,7 +996,9 @@ void MainWindow::Set_Model_Color(){
 
   int number = ui -> listWidget -> currentRow();
 
-  int color = ui->comboBox_2->currentIndex();
+  if(number != -1){
+
+    int color = ui->comboBox_2->currentIndex();
 
   string the_colour;
 
@@ -955,11 +1030,195 @@ switch (color){
 }
   actor[number]->GetProperty()->SetColor(colors->GetColor3d(the_colour).GetData());
   ui->qvtkWidget->GetRenderWindow()->Render();
+
+  } else {
+
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error","Nothing is selected in the model list!");
+    messageBox.setFixedSize(500,200);
+
+  }
+
+  
+}
+
+
+void MainWindow::Set_Opacity(){
+
+    int number = ui -> listWidget -> currentRow();
+
+    if(number != -1){
+      int value = ui->horizontalSlider_2->value();
+
+      float value_float = value/10.0;
+
+      actor[number]->GetProperty()->SetOpacity(value_float);
+
+      ui->qvtkWidget->GetRenderWindow()->Render();
+    } else {
+
+      QMessageBox messageBox;
+      messageBox.critical(0,"Error","Nothing is selected in the model list!");
+      messageBox.setFixedSize(500,200);
+
+    }
+
+}
+
+void MainWindow::show_COG(bool checked){
+
+  vtkSmartPointer<vtkActor> arrowActor;
+
+  if(checked){
+
+
+
+  int number = ui -> listWidget -> currentRow();
+
+  if(number != -1 ){
+
+    //Calculate the COG 
+
+  vtkSmartPointer<vtkPolyData> polyData = vtkPolyData::SafeDownCast(actor[number]->GetMapper()->GetInputAsDataSet());
+
+  vtkSmartPointer<vtkCenterOfMass> centerOfMassFilter = vtkSmartPointer<vtkCenterOfMass>::New();
+
+  centerOfMassFilter->SetInputData(polyData);
+  centerOfMassFilter->SetUseScalarsAsWeights(false);
+  centerOfMassFilter->Update();
+
+  double center[3];
+
+  centerOfMassFilter->GetCenter(center);
+
+
+  //Use this Center as the start point for the COG arrow 
+
+  double startpoint[3];
+  startpoint[0] = center[0];
+  startpoint[1] = center[1];
+  startpoint[2] = center[2];
+
+  double endpoint[3];
+
+  endpoint[0] = center[0];
+  endpoint[1] = center[1];
+  endpoint[2] = center[2]-5;
+
+
+//compute a basis 
+
+  vtkSmartPointer<vtkArrowSource> arrowSource = vtkSmartPointer<vtkArrowSource>::New();
+
+  arrowSource->SetShaftRadius(1.0);
+  
+  
+  arrowSource->SetTipRadius(2.0);
+
+  arrowSource->Update();
+
+  vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+
+  mapper->SetInputConnection(arrowSource->GetOutputPort());
+
+  arrowActor = vtkSmartPointer<vtkActor>::New();
+
+  arrowActor->SetMapper(mapper);
+
+  arrowActor->GetProperty()->SetColor(colors->GetColor3d("Red").GetData());
+
+  double scale[3] = {30, 1, 1};
+
+  arrowActor->SetScale(scale);
+
+  arrowSource->SetTipLength(10.0/30.0);
+
+  vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
+  transform->PostMultiply();
+
+  transform->RotateY(90.0);
+
+  transform->Translate(startpoint[0], startpoint[1], startpoint[2]);
+
+  
+
+  arrowActor->SetUserTransform(transform);
+  
+  
+
+  renderer->AddActor(arrowActor);
+
+
+
+  //Create an arrow object 
+
+  //Display the arrow object
+
+  ui->qvtkWidget->GetRenderWindow()->Render();
+
+  } else {
+
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error","Nothing is selected in the model list!");
+    messageBox.setFixedSize(500,200);
+
+    ui->checkBox->setChecked(false);
+
+  }
+
+  
+
+} else if(!checked){
+
+  
+
+  //arrowActor->GetProperty()->SetOpacity(0);
+  
+  renderer->RemoveActor(arrowActor);
+  
+  //cout << checked << "\n";
+  
+  ui->qvtkWidget->GetRenderWindow()->Render();
+}
+
 }
 
 
 void MainWindow::Save_As_STL_File(){
 
+  QDir dir("../../Test Objects");
+        
+  QString name = dir.absolutePath();
+
+  QString fileName = QFileDialog::getSaveFileName(this, 
+  tr("Save file as .STL"), name, 
+  tr("files (*.stl);")); 
+
+  string filename = fileName.toStdString();
+
+  filename = filename + ".stl";
+
+  vtkSmartPointer<vtkSTLWriter> stlWriter = vtkSmartPointer<vtkSTLWriter>::New();
+
+  //Get all actors as poly data 
+
+  vtkSmartPointer<vtkPolyData> polyData;
+
+  vtkSmartPointer<vtkAppendPolyData> appendpolyFilter = vtkSmartPointer<vtkAppendPolyData>::New();
+
+  for(int i = 0; i < actor.size(); i++){
+
+  appendpolyFilter->AddInputData(vtkPolyData::SafeDownCast(actor[i]->GetMapper()->GetInputAsDataSet()));
+
+  }
+
+  appendpolyFilter->Update();
+
+  //append polydata together
+
+  stlWriter->SetFileName(filename.c_str());
+  stlWriter->SetInputConnection(appendpolyFilter->GetOutputPort());
+  stlWriter->Write();
 
 }
 

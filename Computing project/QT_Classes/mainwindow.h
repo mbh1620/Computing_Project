@@ -51,8 +51,6 @@ bool is_checked;
 
 void openCustomFile(std::string fileName); //Function for opening a proprietry file format and using own classes
 
-void Save_As_STL_File();
-
 int item_length = 0;
 
 int check_item_array_length();
@@ -83,6 +81,12 @@ public slots:
     void Set_Model_Color();
 
     void Reset_Camera();
+
+    void Set_Opacity();
+
+    void show_COG(bool checked);
+
+    void Save_As_STL_File();
 
 private:
 Ui::MainWindow * ui;
