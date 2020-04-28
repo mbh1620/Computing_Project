@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include <QObject.h>
 #include <vtkSmartPointer.h>
 #include <vtkCubeSource.h>
 #include <vtkActor.h>
