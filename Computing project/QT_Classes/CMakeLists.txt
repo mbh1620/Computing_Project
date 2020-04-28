@@ -6,7 +6,7 @@ if(POLICY ${p})
 cmake_policy(SET ${p} NEW)
 endif() 
 endforeach()
-PROJECT( QtVTKExample )
+PROJECT( 3DViewer )
 
 set(CPACK_GENERATOR "ZIP")
 
@@ -34,9 +34,9 @@ qt5_wrap_ui( UI_Srcs ${UIS} )
 
 set(MACOSX_BUNDLE_ICON_FILE logo.icns)
 
-set(QtVTKExample_ICON ${CMAKE_CURRENT_SOURCE_DIR}../../Images/logo.icns)
+set(3DViewer_ICON ${CMAKE_CURRENT_SOURCE_DIR}../../Images/logo.icns)
 
-set_source_files_properties(${QtVTKExample_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "./build/Images")
+set_source_files_properties(${3DViewer_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
 find_package( VTK REQUIRED ) 
 include( ${VTK_USE_FILE} )
@@ -48,7 +48,7 @@ add_library( 3d_viewer_libs ../cell_class/cell.cpp
 
 
 # Define the executable output and its sources
-add_executable( QtVTKExample MACOSX_BUNDLE ${QtVTKExample_ICON} vtk_renderer.cpp mainwindow.cpp
+add_executable( 3DViewer MACOSX_BUNDLE ${3DViewer_ICON} vtk_renderer.cpp mainwindow.cpp
                     mainwindow.h
                     mainwindow.ui
                     ${UI_Srcs}
@@ -59,16 +59,21 @@ add_executable( QtVTKExample MACOSX_BUNDLE ${QtVTKExample_ICON} vtk_renderer.cpp
 
                     
     # Tell CMake that the executable depends on the Qt::Widget libraries.
-target_link_libraries( QtVTKExample Qt5::Widgets)
+target_link_libraries( 3DViewer Qt5::Widgets)
     # Tell CMake that the executable depends on the VTK libraries
-target_link_libraries( QtVTKExample ${VTK_LIBRARIES} )
-target_link_libraries( QtVTKExample 3d_viewer_libs)
+target_link_libraries( 3DViewer ${VTK_LIBRARIES} )
+target_link_libraries( 3DViewer 3d_viewer_libs)
 
 
 
-install(TARGETS QtVTKExample 3d_viewer_libs
+install(TARGETS 3DViewer 3d_viewer_libs
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib/static
     BUNDLE DESTINATION bin
     ) 
+
+
+include(InstallRequiredSystemLibraries)
+
+
