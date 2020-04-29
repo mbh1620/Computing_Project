@@ -9,8 +9,8 @@ warning: ignoring unsupported tag `LATEX_MAKEINDEX_CMD    =' at line 1751, file 
 warning: ignoring unsupported tag `LATEX_EMOJI_DIRECTORY  =' at line 1893, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
 warning: ignoring unsupported tag `XML_NS_MEMB_FILE_SCOPE =' at line 2037, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
 warning: ignoring unsupported tag `PLANTUML_CFG_FILE      =' at line 2483, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: tag INPUT: input source `./Computing Project' does not exist
-warning: source ./Computing Project is not a readable file or directory... skipping.
+warning: tag INPUT: input source `./Computing project' does not exist
+warning: source ./Computing project is not a readable file or directory... skipping.
 Searching for include files...
 Searching for example files...
 Searching for images...
