@@ -13,7 +13,7 @@ addons:
     - doxygen
     - graphviz
 script:
-- cmake ./Computing\ project/QT_Classes
+- cmake ./Computing\ project
 - make
 #- make test1
 after_success:
