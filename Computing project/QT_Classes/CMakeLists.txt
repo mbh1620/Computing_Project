@@ -8,7 +8,7 @@ endif()
 endforeach()
 PROJECT( 3DViewer )
 
-set(CPACK_GENERATOR "ZIP")
+set(CPACK_GENERATOR "DragNDrop")
 
 include(CPack)
 
@@ -27,6 +27,10 @@ set( CMAKE_AUTOUIC ON )
  
 find_package( Qt5Widgets )
 
+get_target_property(QtWidgets_location Qt5::Widgets LOCATION)
+
+
+
 set( UIS mainwindow.ui ) 
 qt5_wrap_ui( UI_Srcs ${UIS} )
 
@@ -38,8 +42,12 @@ set(3DViewer_ICON ${CMAKE_CURRENT_SOURCE_DIR}../../Images/logo.icns)
 
 set_source_files_properties(${3DViewer_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
-find_package( VTK REQUIRED ) 
+find_package( VTK REQUIRED )
 include( ${VTK_USE_FILE} )
+
+
+
+
 add_library( 3d_viewer_libs ../cell_class/cell.cpp 
 			    ../material_class/material.cpp
 			    ../model_class/model.cpp
@@ -59,8 +67,12 @@ add_executable( 3DViewer MACOSX_BUNDLE ${3DViewer_ICON} vtk_renderer.cpp mainwin
 
                     
     # Tell CMake that the executable depends on the Qt::Widget libraries.
+
 target_link_libraries( 3DViewer Qt5::Widgets)
+
+
     # Tell CMake that the executable depends on the VTK libraries
+
 target_link_libraries( 3DViewer ${VTK_LIBRARIES} )
 target_link_libraries( 3DViewer 3d_viewer_libs)
 
@@ -73,7 +85,23 @@ install(TARGETS 3DViewer 3d_viewer_libs
     BUNDLE DESTINATION bin
     ) 
 
+set_target_properties(3DViewer 
+PROPERTIES
+MACOSX_BUNDLE_BUNDLE_NAME "3DViewer"
+)
 
+include(BundleUtilities)
 include(InstallRequiredSystemLibraries)
+include(DeployQt5.cmake)
+
+get_filename_component(qt_dlls_dir "${QtWidgets_location}" PATH)
+get_filename_component(qt_dlls_dir "${qt_dlls_dir}" PATH)
+get_filename_component(vtk_dlls_dir "${vtk_location}" PATH)
+
+set(dirs2 "${vtk_dlls_dir}")
+
+set(dirs "${qt_dlls_dir}")
+
+install_qt5_executable("bin/3DViewer.app" "" "" "${dirs}" "" "")
 
 
