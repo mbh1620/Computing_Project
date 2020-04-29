@@ -3,12 +3,14 @@ warning: ignoring unsupported tag `JAVADOC_BANNER         =' at line 208, file /
 warning: ignoring unsupported tag `OPTIMIZE_OUTPUT_SLICE  =' at line 306, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
 warning: ignoring unsupported tag `TOC_INCLUDE_HEADINGS   =' at line 345, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
 warning: ignoring unsupported tag `EXTRACT_PRIV_VIRTUAL   =' at line 482, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: ignoring unsupported tag `HTML_DYNAMIC_MENUS     =' at line 1279, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: ignoring unsupported tag `FORMULA_MACROFILE      =' at line 1566, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: ignoring unsupported tag `LATEX_MAKEINDEX_CMD    =' at line 1750, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: ignoring unsupported tag `LATEX_EMOJI_DIRECTORY  =' at line 1892, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: ignoring unsupported tag `XML_NS_MEMB_FILE_SCOPE =' at line 2036, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
-warning: ignoring unsupported tag `PLANTUML_CFG_FILE      =' at line 2482, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: ignoring unsupported tag `HTML_DYNAMIC_MENUS     =' at line 1280, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: ignoring unsupported tag `FORMULA_MACROFILE      =' at line 1567, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: ignoring unsupported tag `LATEX_MAKEINDEX_CMD    =' at line 1751, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: ignoring unsupported tag `LATEX_EMOJI_DIRECTORY  =' at line 1893, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: ignoring unsupported tag `XML_NS_MEMB_FILE_SCOPE =' at line 2037, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: ignoring unsupported tag `PLANTUML_CFG_FILE      =' at line 2483, file /home/travis/build/mbh1620/Computing_Project/Doxyfile
+warning: tag INPUT: input source `/home/travis/build/mbh1620/Computing_Project/code_docs/Computing_Project/Computing\ project/cell_class' does not exist
+warning: source /home/travis/build/mbh1620/Computing_Project/code_docs/Computing_Project/Computing\ project/cell_class is not a readable file or directory... skipping.
 Searching for include files...
 Searching for example files...
 Searching for images...
@@ -17,7 +19,6 @@ Searching for msc files...
 Searching for dia files...
 Searching for files to exclude
 Searching INPUT for files to process...
-Searching for files in directory /home/travis/build/mbh1620/Computing_Project/code_docs/Computing_Project
 Reading and parsing tag files
 Parsing files
 Building group list...
