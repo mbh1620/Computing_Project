@@ -2,11 +2,11 @@
 
 include(CTest)
 
-add_library( 3d_viewer_libs ../cell_class/cell.cpp 
-			    ../material_class/material.cpp
-			    ../model_class/model.cpp
-			    ../vector_class/vector.cpp
-			    ../renderer_class/renderer.cpp)
+add_library( 3d_viewer_libs ./cell_class/cell.cpp 
+			    ./material_class/material.cpp
+			    ./model_class/model.cpp
+			    ./vector_class/vector.cpp
+			    ./renderer_class/renderer.cpp)
 
 
 #Add tests and test executables here 
