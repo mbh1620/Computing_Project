@@ -11,11 +11,10 @@ git config --global push.default simple
 git config user.name "Travis CI"
 
 git config user.email "travis@travis-ci.com"
-rm -rf *
+#rm -rf *
 echo "" > .nojekyll
-echo "doing an ls"
-echo $(ls)
-echo ls
+
+
 doxygen $DOXYFILE 2>&1 | tee doxygen.log
 if [ -d "html" ] && [ -f "html/index.html" ]; then
         git add --all
