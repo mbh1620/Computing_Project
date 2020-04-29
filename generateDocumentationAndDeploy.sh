@@ -14,6 +14,7 @@ git config user.email "travis@travis-ci.com"
 rm -rf *
 echo "" > .nojekyll
 echo "doing an ls"
+ls
 echo ls
 doxygen $DOXYFILE 2>&1 | tee doxygen.log
 if [ -d "html" ] && [ -f "html/index.html" ]; then
