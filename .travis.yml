@@ -20,4 +20,5 @@ script:
 - make test4
 - cd $TRAVIS_BUILD_DIR
 - chmod +x generateDocumentationAndDeploy.sh 
+- ls
 - ./generateDocumentationAndDeploy.sh
