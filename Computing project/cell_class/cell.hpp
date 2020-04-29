@@ -16,21 +16,21 @@
 //	
 //-----------------------------------------------------------------------------
 
-//Copryright: Matt Haywood
+//Copyright: Matt Haywood
 
-
-/* A cell is a shape that is defined by 2 or more vertices (vectors). The following types of
-cell may be encountered in the model file:
-
-- Tetrahedron, 4 vertices
-- Hexahedron, 8 vertices,
-- Pyramid, 5 vertices
-
-A cell object should be able to calculate its own volume
-
-It should also be able to estimate its centre of gravity
-
-It should be able to estimate its weight.
+/**
+*A cell is a shape that is defined by 2 or more vertices (vectors). The following types of
+*cell may be encountered in the model file:
+*
+*- Tetrahedron, 4 vertices
+*- Hexahedron, 8 vertices,
+*- Pyramid, 5 vertices
+*
+*A cell object should be able to calculate its own volume
+*
+*It should also be able to estimate its centre of gravity
+*
+*It should be able to estimate its weight.
 */
 
 
