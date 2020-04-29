@@ -18,7 +18,6 @@ script:
 - make test2
 - make test3
 - make test4
-after_success:
 - cd $TRAVIS_BUILD_DIR
 - chmod +x generateDocumentationAndDeploy.sh 
 - ./generateDocumentationAndDeploy.sh
