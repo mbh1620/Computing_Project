@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cell_12',['cell',['../classcell.html',1,'']]]
+  ['cell',['cell',['../classcell.html',1,'']]]
 ];
