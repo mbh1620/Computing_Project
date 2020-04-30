@@ -166,10 +166,10 @@ Generating file documentation...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.cpp...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.cpp...
-Generating docs for file //home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:31: warning: Member MainWindow(QWidget *parent=0, std::string Filename="Boat.stl") (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:63: warning: Member check_item_array_length() (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:65: warning: Member disable_distance_widget() (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:61: warning: Member item_length (variable) of class MainWindow is not documented.
+Generating docs for file //home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:33: warning: Member MainWindow(QWidget *parent=0, std::string Filename="Boat.stl") (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:65: warning: Member check_item_array_length() (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:67: warning: Member disable_distance_widget() (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:63: warning: Member item_length (variable) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:52: warning: Member matrix(int first, int second_dimension, float data[]) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:56: warning: Member matrix(const matrix &a) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:58: warning: Member operator=(const matrix &a) (function) of class matrix is not documented.
