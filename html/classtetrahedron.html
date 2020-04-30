@@ -98,7 +98,7 @@ Inheritance diagram for tetrahedron:</div>
  <div class="center">
   <img src="classtetrahedron.png" usemap="#tetrahedron_map" alt=""/>
   <map id="tetrahedron_map" name="tetrahedron_map">
-<area href="classcell.html" alt="cell" shape="rect" coords="0,0,77,24"/>
+<area href="classcell.html" title="&lt; The Cell Class is used to create a pyramid, tetrahedron or hexahedron. " alt="cell" shape="rect" coords="0,0,77,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -245,7 +245,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </div><div class="memdoc">
 
 <p>Center of Gravity redefined because the centroid of a tetrahedron is different. </p>
-<p>The Tetrahedron centre of gravity calculation is calculated by adding all the points up and then dividing by 4 </p>
+<p>The Tetrahedron centre of gravity calculation is calculated by adding all the points up and then dividing by 4. This is assuming that the density of the tetrahedron is constant through out. </p>
 
 <p>Reimplemented from <a class="el" href="classcell.html#af604e8aa23ca1dee870d1393d003a8d5">cell</a>.</p>
 
@@ -273,7 +273,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </div><div class="memdoc">
 
 <p>Volume function redefined because the volume of a tetrahedron is different. </p>
-<p>The volume of a tetrahedron for four points can be defined as</p>
+<p>The volume of a tetrahedron for four points can be defined as:</p>
 <p>V = [(a-d)dot((b-d)cross(c-d))]/6 V = [xdot(ycrossz)]/6</p>
 <p>dot and cross functions have been defined in the <a class="el" href="vector_8hpp_source.html">vector.hpp</a> library so we can use them.</p>
 
