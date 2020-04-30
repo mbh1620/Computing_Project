@@ -139,7 +139,7 @@ class tetrahedron : public cell
 {
 
 public:
-	tetrahedron(std::deque<Vector> vertices_in, material _cell_material); 		///< constructor for list of vertices
+	tetrahedron(std::deque<Vector> vertices_in, material _cell_material); 		///< constructor Tetrahedron
 	
 	float weight_calc();														///< Weight calc redefined because weight of tetrahedron will different.
 
@@ -158,14 +158,14 @@ public:
 
 class pyramid : public cell
 {
-public:
-	pyramid(std::deque<Vector> vertices_in, material _cell_material);
+public:										
+	pyramid(std::deque<Vector> vertices_in, material _cell_material);			///< Constructor for Pyramid 
 
-	float weight_calc();
+	float weight_calc();														///< weight calculation redefined because it will be different.
 
-	Vector cog_calc();
+	Vector cog_calc();															///< Centre of Gravity for a Pyramid will be different.
 
-	float volume_calc(); 
+	float volume_calc(); 														///< Volume of Pyramid will be different.
 };
 
 //-----------------------------------------------------------------------------
@@ -178,13 +178,13 @@ public:
 class hexahedron : public cell
 {
 public:
-	hexahedron(std::deque<Vector> vertices_in, material _cell_material);
+	hexahedron(std::deque<Vector> vertices_in, material _cell_material);		///< Constructor for Hexahedron
 
-	float weight_calc();
+	float weight_calc();														///< Weight calculation redefined because it will be different for a Hexahedron.
 
-	Vector cog_calc();
+	Vector cog_calc();															///< Centre of Gravity redefined because it will be different for a Hexahedron.
 
-	float volume_calc();
+	float volume_calc();														///< Volume calculation redefined because it will be different for a Hexahedron.
 };
 
 

@@ -1,3 +1,4 @@
+/// \file
 #include "cell.hpp"
 #include <iostream>
 
@@ -35,8 +36,11 @@ float volume_of_tetra(Vector vertices[]){
 //	
 //-----------------------------------------------------------------------------
 
+/**
+	The implementation of the cell class
+*/
 
-int cell::getId(){
+int cell::getId(){			
 	return id;
 }
 
