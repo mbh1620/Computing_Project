@@ -212,6 +212,10 @@ delete ui; }
 
 void MainWindow::openFile() 
 { 
+  /*! This function is for triggering the opening of a file. This function detects whether the file is a .STL or a .TXT (Proprietry format). It then either calls the 
+      openCustomFile function if it is a .TXT or it creates a STL reader and opens a .STL file.
+   */
+
         QDir dir("./Test Objects");
         
         QString name = dir.absolutePath();
@@ -311,6 +315,8 @@ ui->qvtkWidget->GetRenderWindow()->AddRenderer( renderer );
 }
 
 void MainWindow::openCustomFile(std::string fileName){
+
+  /*! This function creates a new model object and then reads in the file. It then creates the necessary vtk objects for creating a rendering of the custom file.*/
 
 	//Custom code goes here!
 	cout << "Opened Custom file\n ";
@@ -647,6 +653,12 @@ void MainWindow::delete_model()
 
 void MainWindow::transform()
 {
+  /*! 
+  This function is for transforming and rotating models. The models can be manipulated into place so that the user can build a bigger and more complex models
+  from multiple smaller component models. They can then be saved as a model using the save to STL button.
+
+  A transform requires a transform filter so that not only is the actor transformed the actual data points are also transformed. This means that when a user 
+  goes to save to .STL the transformed models will have there transformed positions saved too. */
 
   //Get the actor of the object which is currently highlighted in the listView
 
@@ -655,10 +667,10 @@ void MainWindow::transform()
   if (number != -1){
     vtkSmartPointer<vtkTransform> transform = vtkSmartPointer<vtkTransform>::New();
   transform->PostMultiply();
-     //lineEdit_6
-  QString x_trans = ui->lineEdit->text();//lineEdit
-  QString y_trans = ui->lineEdit_2->text();//lineEdit_2
-  QString z_trans = ui->lineEdit_3->text();//lineEdit_3
+  
+  QString x_trans = ui->lineEdit->text();       //lineEdit
+  QString y_trans = ui->lineEdit_2->text();     //lineEdit_2
+  QString z_trans = ui->lineEdit_3->text();     //lineEdit_3
   double x_trans_double = x_trans.toDouble();
   double y_trans_double = y_trans.toDouble();
   double z_trans_double = z_trans.toDouble();
@@ -779,7 +791,7 @@ void MainWindow::model_details(){
 
   //Find color of actor[number]
 
-  /*List of Colors and names:
+  /*! List of Colors and names:
 
     0Silver -          0.752941 0.752941  0.752941
     1Red(tomato) -     1        0.3882350 0.278431
