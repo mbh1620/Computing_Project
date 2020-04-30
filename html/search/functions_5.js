@@ -1,4 +1,10 @@
 var searchData=
 [
-  ['volume_5fcalc',['volume_calc',['../classcell.html#aa3dee0f5fa28c676c923bb95f55d5316',1,'cell::volume_calc()'],['../classtetrahedron.html#a58ff179bf94c017d41281d1c4b7b6b23',1,'tetrahedron::volume_calc()'],['../classpyramid.html#a4aef9b8940d66bf79a456ee9bf25ca98',1,'pyramid::volume_calc()'],['../classhexahedron.html#a2afee8356bcaefc3904eddba9d510965',1,'hexahedron::volume_calc()']]]
+  ['set_5fcog',['set_cog',['../classcell.html#ae3bcb43e2e46c137e65552aa73ba20d1',1,'cell']]],
+  ['set_5fmaterial',['set_material',['../classcell.html#a3d43d6a6bacd9145aded4ce1e734e361',1,'cell']]],
+  ['set_5fshape',['set_shape',['../classcell.html#a1419824352fd1ae2ee2b9c25bfae8383',1,'cell']]],
+  ['set_5fvertices',['set_vertices',['../classcell.html#a3ead2cf338158ef2bde1f3e64b1d8fce',1,'cell']]],
+  ['set_5fvolume',['set_volume',['../classcell.html#ac77017d9c0c8df096d4194209c1db939',1,'cell']]],
+  ['set_5fweight',['set_weight',['../classcell.html#a13fb02cf71ca4359a383addfe1a8fdd3',1,'cell']]],
+  ['setid',['setId',['../classcell.html#a14e98242e7f2e99c49a147e4db077bf4',1,'cell']]]
 ];
