@@ -22,7 +22,7 @@ add_executable(test4 ./Test\ Mains/Vector_test.cpp)
 
 target_link_libraries(test1 3d_viewer_libs)
 target_link_libraries(test2 3d_viewer_libs)
-target_link_libraries(test3 3d_viewer_libs)
+
 target_link_libraries(test4 3d_viewer_libs)
 
 add_test(test1 test1)
