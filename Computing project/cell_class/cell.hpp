@@ -76,39 +76,39 @@ public:
 	//-------------------------  getter/setter functions ----------------------
 	int getId();														///< Getter function for cell id
 
-	void setId(int _id);												
+	void setId(int _id);												///< Setter function for cell id
 
-	void set_material(material _cell_material);
+	void set_material(material _cell_material);							///< Set the material of the cell 
 
-	material get_material();
+	material get_material();											///< Get the material of the cell
 
-	char get_shape();
+	char get_shape();													///< Get the shape of the cell
 
-	void set_shape(char _shape);
+	void set_shape(char _shape);										///< Set the shape of the cell with 't','p' or 'h'.
 
-	float get_volume();					//getter for volume
+	float get_volume();													///<getter for volume
 
-	void set_volume(float _volume);		//Setter for volume
+	void set_volume(float _volume);										///<Setter for volume
 
-	Vector get_cog();					//getter for cog
+	Vector get_cog();													///<getter for cog
 
-	void set_cog(Vector _cog);			//Setter for COG
+	void set_cog(Vector _cog);											///<Setter for COG
 
-	float get_weight();					//getter for weight
+	float get_weight();													///<getter for weight
 
-	void set_weight(float _weight);		//Setter for weight
+	void set_weight(float _weight);										///<Setter for weight
 
-	std::deque<Vector> get_vertices();			//getter for the array of vertices
+	std::deque<Vector> get_vertices();									///<getter for the array of vertices
 
-	void set_vertices(std::deque<Vector> _vertices);	//setter for the vertices
+	void set_vertices(std::deque<Vector> _vertices);					///<setter for the vertices
 
 	//------------------------ calulation functions --------------------------
 	
-	virtual float weight_calc();			//Function to calculate weight. Virtual because it may need redefining based on what subclass is used
+	virtual float weight_calc();										///<Function to calculate weight. Virtual because it may need redefining based on what subclass is used.
 
-	virtual Vector cog_calc();			//Function to calculate Center of gravity
+	virtual Vector cog_calc();											///<Function to calculate Center of gravity
 
-	virtual float volume_calc();		//Function to calculate volume
+	virtual float volume_calc();										///<Function to calculate volume
 };
 
 
@@ -125,7 +125,9 @@ public:
 //-----------------------------------------------------------------------------
 
 //Function:
-/*	
+/**	
+	Tetrahedron Subclass
+
 	- Calculate the tetrahedrons weight
 	- Calculate the centre of gravity 
 	- Calculate the volume 
@@ -137,13 +139,13 @@ class tetrahedron : public cell
 {
 
 public:
-	tetrahedron(std::deque<Vector> vertices_in, material _cell_material); 		//constructor for list of vertices
+	tetrahedron(std::deque<Vector> vertices_in, material _cell_material); 		///< constructor for list of vertices
 	
-	float weight_calc();
+	float weight_calc();														///< Weight calc redefined because weight of tetrahedron will different.
 
-	Vector cog_calc();
+	Vector cog_calc();															///< Center of Gravity redefined because the centroid of a tetrahedron is different.
 
-	float volume_calc();
+	float volume_calc();														///< Volume function redefined because the volume of a tetrahedron is different.
 
 };
 
