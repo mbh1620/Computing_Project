@@ -36,10 +36,6 @@ float volume_of_tetra(Vector vertices[]){
 //	
 //-----------------------------------------------------------------------------
 
-/**
-* The implementation of the cell class
-*/
-
 int cell::getId(){			
 	return id;
 }
@@ -172,7 +168,7 @@ tetrahedron::tetrahedron(std::deque<Vector> vertices_in, material _cell_material
 	
 }
 
-float tetrahedron::weight_calc(){
+float tetrahedron::weight_calc(){																
 
 	//Get the density from the material of the cell
 	float cell_density = cell_material.getDensity();
@@ -188,7 +184,7 @@ float tetrahedron::weight_calc(){
 
 }
 
-Vector tetrahedron::cog_calc(){
+Vector tetrahedron::cog_calc(){													/*! The Tetrahedron centre of gravity calculation is calculated by adding all the points up and then dividing by 4*/
 	//Centroid function for a tetrahedron
 
 	std::deque <Vector> points = get_vertices();
@@ -214,7 +210,7 @@ Vector tetrahedron::cog_calc(){
 }
 
 float tetrahedron::volume_calc(){
-	/* The volume of a tetrahedron for four points can be defined as 
+	/*! The volume of a tetrahedron for four points can be defined as 
 	
 		V = [(a-d)dot((b-d)cross(c-d))]/6
 		V = [xdot(ycrossz)]/6
