@@ -1,3 +1,4 @@
+/// \file
 #include "model.hpp"
 
 
@@ -25,6 +26,18 @@ model& model:: operator=(const model& a){
 }
 
 void model::readInFile(string filename){
+
+	/*! This function reads in the file, it then detects a '#', 'm', 'v' or 'c'. 
+	
+	- # -- Means to ignore the line.
+	- m -- Material. 
+	- v -- Vector.
+	- c -- Cell.
+
+	if any of these are found they then call the corresponding parser functions.
+
+	*/
+
 	string line;
 
 	ifstream myfile(filename);
@@ -90,9 +103,9 @@ void model::saveNewFile(string filename){
 }
 
 void model::material_parser(string material_data){
-	//Code for interpreting a material line
-	//Example line for a material:
-	// m 0 8960 b87373 copper
+	/*! Code for interpreting a material line
+		Example line for a material:
+			m 0 8960 b87373 copper */
 	
 	string words[5];
 
@@ -119,9 +132,10 @@ void model::material_parser(string material_data){
 }
 
 void model::vertex_parser(string vertex_data){
-	//Code for interpreting a vertex line
-	//v 0 0. 0. 0.
-	//v 1 1. 0. 0.
+	/*! Code for interpreting a vertex line
+		Vector example line in the file:
+			v 0 0. 0. 0.
+			v 1 1. 0. 0. */
 
 	string words[5];
 
@@ -150,8 +164,9 @@ void model::vertex_parser(string vertex_data){
 }
 
 void model::cell_parser(string cell_data){
-	//Code for interpreting a cell 
-	//c 1 t 1 8 9 10 11
+	/*! Code for interpreting a cell 
+			Example cell line: 
+				c 1 t 1 8 9 10 11 */
 	deque<string> words;
 	//string words[10];
 
