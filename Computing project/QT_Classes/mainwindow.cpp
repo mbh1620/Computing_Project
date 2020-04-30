@@ -1,3 +1,5 @@
+/// \file
+
 #include <vtkXMLPolyDataReader.h>
 #include <vtkXMLPolyDataWriter.h>
 #include <vtkDataSetMapper.h>
