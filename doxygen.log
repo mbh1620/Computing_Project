@@ -98,10 +98,6 @@ Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:137: warning: Compound tetrahedron is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:21: warning: Compound material is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:25: warning: Compound renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:66: warning: Member cell(std::deque< Vector > vertices_in, material _cell_material) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:72: warning: Member cell(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:74: warning: Member operator=(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:77: warning: Member getId() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:79: warning: Member setId(int _id) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:81: warning: Member set_material(material _cell_material) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:83: warning: Member get_material() (function) of class cell is not documented.
@@ -118,10 +114,6 @@ Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:107: warning: Member weight_calc() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:109: warning: Member cog_calc() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:111: warning: Member volume_calc() (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:43: warning: Member shape (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:45: warning: Member cell_material (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:47: warning: Member id (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:49: warning: Member volume (variable) of class cell is not documented.
 Model2.mod.txt...
 Preprocessing /home/travis/build/mbh1620/Computing_Project/Computing project/Test Objects/proprietry_files/ExampleModel3.mod.txt...
 Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test Objects/proprietry_files/ExampleModel3.mod.txt...
@@ -203,10 +195,6 @@ Generating /home/travis/build/mbh1620/Computing_Project/Computing project/cell_c
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:181: warning: Member weight_calc() (function) of class hexahedron is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:183: warning: Member cog_calc() (function) of class hexahedron is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:185: warning: Member volume_calc() (function) of class hexahedron is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:66: warning: Member cell(std::deque< Vector > vertices_in, material _cell_material) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:72: warning: Member cell(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:74: warning: Member operator=(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:77: warning: Member getId() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:79: warning: Member setId(int _id) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:81: warning: Member set_material(material _cell_material) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:83: warning: Member get_material() (function) of class cell is not documented.
@@ -220,10 +208,6 @@ Generating /home/travis/build/mbh1620/Computing_Project/Computing project/cell_c
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:99: warning: Member set_weight(float _weight) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:101: warning: Member get_vertices() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:103: warning: Member set_vertices(std::deque< Vector > _vertices) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:43: warning: Member shape (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:45: warning: Member cell_material (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:47: warning: Member id (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:49: warning: Member volume (variable) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:61: warning: Member openFile() (slot) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:63: warning: Member on_file_add(QString filename) (slot) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:65: warning: Member Cross_Section_Analysis(bool checked) (slot) of class MainWindow is not documented.
@@ -286,10 +270,6 @@ Generating /home/travis/build/mbh1620/Computing_Project/Computing project/cell_c
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:162: warning: Member weight_calc() (function) of class pyramid is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:164: warning: Member cog_calc() (function) of class pyramid is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:166: warning: Member volume_calc() (function) of class pyramid is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:66: warning: Member cell(std::deque< Vector > vertices_in, material _cell_material) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:72: warning: Member cell(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:74: warning: Member operator=(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:77: warning: Member getId() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:79: warning: Member setId(int _id) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:81: warning: Member set_material(material _cell_material) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:83: warning: Member get_material() (function) of class cell is not documented.
@@ -303,10 +283,6 @@ Generating /home/travis/build/mbh1620/Computing_Project/Computing project/cell_c
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:99: warning: Member set_weight(float _weight) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:101: warning: Member get_vertices() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:103: warning: Member set_vertices(std::deque< Vector > _vertices) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:43: warning: Member shape (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:45: warning: Member cell_material (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:47: warning: Member id (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:49: warning: Member volume (variable) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:34: warning: Member renderer(model _the_model) (function) of class renderer is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:38: warning: Member renderer(const renderer &a) (function) of class renderer is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:40: warning: Member operator=(const renderer &a) (function) of class renderer is not documented.
@@ -322,10 +298,6 @@ Generating /home/travis/build/mbh1620/Computing_Project/Computing project/cell_c
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:142: warning: Member weight_calc() (function) of class tetrahedron is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:144: warning: Member cog_calc() (function) of class tetrahedron is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:146: warning: Member volume_calc() (function) of class tetrahedron is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:66: warning: Member cell(std::deque< Vector > vertices_in, material _cell_material) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:72: warning: Member cell(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:74: warning: Member operator=(const cell &a) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:77: warning: Member getId() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:79: warning: Member setId(int _id) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:81: warning: Member set_material(material _cell_material) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:83: warning: Member get_material() (function) of class cell is not documented.
@@ -339,10 +311,6 @@ Generating /home/travis/build/mbh1620/Computing_Project/Computing project/cell_c
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:99: warning: Member set_weight(float _weight) (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:101: warning: Member get_vertices() (function) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:103: warning: Member set_vertices(std::deque< Vector > _vertices) (function) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:43: warning: Member shape (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:45: warning: Member cell_material (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:47: warning: Member id (variable) of class cell is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:49: warning: Member volume (variable) of class cell is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:40: warning: Member Vector(int id, float x, float y, float z) (function) of class Vector is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:44: warning: Member Vector(const Vector &a) (function) of class Vector is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:46: warning: Member operator=(const Vector &a) (function) of class Vector is not documented.
@@ -378,5 +346,5 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 writing tag file...
-lookup cache used 188/65536 hits=1070 misses=196
+lookup cache used 184/65536 hits=1054 misses=192
 finished...
