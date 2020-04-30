@@ -20,6 +20,8 @@
 
 //Copyright: Matt Haywood
 
+
+
 /**
 *A cell is a shape that is defined by 2 or more vertices (vectors). The following types of
 *cell may be encountered in the model file:
@@ -36,7 +38,7 @@
 */
 
 
-class cell
+class cell 								///< The Cell Class is used to create a pyramid, tetrahedron or hexahedron.
 {
 
 protected: 

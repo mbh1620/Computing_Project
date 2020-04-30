@@ -184,7 +184,8 @@ float tetrahedron::weight_calc(){
 
 }
 
-Vector tetrahedron::cog_calc(){													/*! The Tetrahedron centre of gravity calculation is calculated by adding all the points up and then dividing by 4*/
+Vector tetrahedron::cog_calc(){						/*! The Tetrahedron centre of gravity calculation is calculated by adding all the points up and then dividing by 4. This 
+														is assuming that the density of the tetrahedron is constant through out.*/
 	//Centroid function for a tetrahedron
 
 	std::deque <Vector> points = get_vertices();
@@ -210,7 +211,7 @@ Vector tetrahedron::cog_calc(){													/*! The Tetrahedron centre of gravit
 }
 
 float tetrahedron::volume_calc(){
-	/*! The volume of a tetrahedron for four points can be defined as 
+	/*! The volume of a tetrahedron for four points can be defined as:
 	
 		V = [(a-d)dot((b-d)cross(c-d))]/6
 		V = [xdot(ycrossz)]/6
@@ -259,6 +260,8 @@ pyramid::pyramid(std::deque<Vector> vertices_in, material _cell_material){
 
 float pyramid::weight_calc(){
 
+
+
 	//Get the density from the material of the cell
 	float cell_density = cell_material.getDensity();
 
@@ -275,6 +278,9 @@ float pyramid::weight_calc(){
 
 Vector pyramid::cog_calc(){
 	//calculations for calculating the centre of gravity of a pyramid
+
+	/*! The centre of gravity for a pyramid can be calculated by adding up all the vectors of the class and then dividing by 5. This is assuming the 
+		pyramid is made of a single material and the density is constant throug out. */
 
 	std::deque<Vector> points = get_vertices();
 
@@ -301,13 +307,15 @@ Vector pyramid::cog_calc(){
 }
 
 float pyramid::volume_calc(){
-	/* The volume of a pyramid for 5 points can be defined as: 
+	/*! The volume of a pyramid for 5 points can be defined as: 
 
 		Split the pyramid into two tetrahedrons, work out the volume of both of them and then add their volumes together.
 
 		tetrahedron 1 = 1,2,3,4
 
 		tetrahedron 2 = 0,1,3,4
+
+		The volume of the 2 tetrahedrons are calulated using the volume_of_tetra_function().
 
 		*/
 
@@ -376,6 +384,9 @@ float hexahedron::weight_calc(){
 }
 
 Vector hexahedron::cog_calc(){
+
+	/*! The centre of gravity of a hexahedron is calulated by adding all the points together and dividing by 8. This is assuming that the density is constant through out.*/
+
 	std::deque<Vector> points = get_vertices();
 
 
@@ -404,7 +415,7 @@ Vector hexahedron::cog_calc(){
 }
 
 float hexahedron::volume_calc(){
-	/* The volume of a hexahedron for 8 points can be defined as: 
+	/*! The volume of a hexahedron for 8 points can be defined as: 
 
 		Split the hexahedron into 5 tetrahedrons, calculate the volume of the 5 tetrahedrons and then add the volumes together.
 
@@ -412,7 +423,7 @@ float hexahedron::volume_calc(){
 		Tetrahedron 2 = (5,3,6,7)
 		Tetrahedron 3 = (0,1,4,3)
 		Tetrahedron 4 = (6,4,5,0)
-		Tetrahedron 5 = (3,0,5,6) the volume of the inside volume is twice the outer tetrahedrons
+		Tetrahedron 5 = (3,0,5,6) the volume of the inside tetrahedron is twice the outer tetrahedrons.
 
 		*/
 
