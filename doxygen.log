@@ -93,7 +93,6 @@ Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:181: warning: Compound hexahedron is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:21: warning: Compound MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.hpp:40: warning: Compound model is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:28: warning: Compound Vector is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:162: warning: Compound pyramid is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:21: warning: Compound material is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:25: warning: Compound renderer is not documented.
@@ -242,15 +241,6 @@ Gener/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/m
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:52: warning: Member file_hexahedrons() (function) of class renderer is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:54: warning: Member file_pyramids() (function) of class renderer is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:56: warning: Member file_end() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:40: warning: Member Vector(int id, float x, float y, float z) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:44: warning: Member Vector(const Vector &a) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:46: warning: Member operator=(const Vector &a) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:48: warning: Member operator+(const Vector &a) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:50: warning: Member operator-(const Vector &a) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:52: warning: Member get(char d) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:54: warning: Member set(char d, float value) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:56: warning: Member dot(const Vector &a) (function) of class Vector is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.hpp:58: warning: Member cross(const Vector &b) (function) of class Vector is not documented.
 ating group documentation...
 Generating class documentation...
 Generating docs for compound cell...
@@ -280,5 +270,5 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 writing tag file...
-lookup cache used 169/65536 hits=1019 misses=177
+lookup cache used 165/65536 hits=1013 misses=173
 finished...

@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['operator_3d',['operator=',['../classcell.html#a28f8043a576cf1f5218d2089e9c84178',1,'cell']]]
+  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]],
+  ['material',['material',['../classmaterial.html',1,'']]],
+  ['matrix',['matrix',['../classmatrix.html',1,'']]],
+  ['model',['model',['../classmodel.html',1,'']]]
 ];
