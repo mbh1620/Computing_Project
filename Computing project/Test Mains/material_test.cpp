@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../material.hpp"
+#include "../material_class/material.hpp"
 
 int main(){
 

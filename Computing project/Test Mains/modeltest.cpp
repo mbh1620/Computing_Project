@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../model.hpp"
+#include "../model_class/model.hpp"
 
 
 using namespace std;

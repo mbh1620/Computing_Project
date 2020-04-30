@@ -1,5 +1,5 @@
 #include <iostream>
-#include "cell.hpp"
+#include "../cell_class/cell.hpp"
 
 int main(){
 	
