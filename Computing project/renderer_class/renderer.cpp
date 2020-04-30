@@ -66,8 +66,8 @@ void renderer::file_start(){
     "<ul>\n"
     "<li>\n"
     "</ul>\n"
-    "<script src='js/three.js'></script>\n"
-    "<script src='js/OrbitControls.js'></script>\n"
+    "<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js'></script>\n"
+    "<script src='https://cdn.jsdelivr.net/npm/three-orbitcontrols@2.110.3/OrbitControls.min.js'></script>\n"
     "\n"
 	"<script>\n"
 	"function main() {\n"
@@ -98,6 +98,8 @@ void renderer::file_start(){
 }
 
 void renderer::file_tetrahedrons(){
+
+  /*! For all the tetrahedrons in the model, send their information to the render file.*/
   string data;
   //For all the tetrahedrons in the model send their information to the render file
   //Create a list of tetrahedrons in the model 
@@ -117,10 +119,10 @@ void renderer::file_tetrahedrons(){
 
     
 
-    //Extract the information about the tetrahedron cells 
+    ///Extract the information about the tetrahedron cells 
 
 
-    /* Extract the vertices from the cell
+    /*! Extract the vertices from the cell
       - Extract the 'x' coordinate from each vertex
       - Extract the 'y' coordinate from each vertex
       - Extract the 'z' coordinate from each vertex
@@ -139,7 +141,7 @@ void renderer::file_tetrahedrons(){
 
     outfile << data << endl;
         
-    /*Extract the material from the cell
+    /*! Extract the material from the cell
       - Extract the colour of material from material.
     */
 
@@ -177,6 +179,9 @@ void renderer::file_tetrahedrons(){
 }
 
 void renderer::file_hexahedrons(){
+
+  /*! For all the hexahedrons in the model send their information to the renderer file.*/
+
   string data;
   //For all the tetrahedrons in the model send their information to the render file
   //Create a list of tetrahedrons in the model 
@@ -196,7 +201,7 @@ void renderer::file_hexahedrons(){
 
   //Extract the information about the hexahedrons
 
-  /* Extract the vertices from the hexahedrons */
+  /*! Extract the vertices from the hexahedrons */
 
   deque<Vector> vertices_from_hexahedron;
 
@@ -260,7 +265,7 @@ void renderer::file_hexahedrons(){
 }
 
 void renderer::file_pyramids(){
-  //For all the pyramids in the model send their information to the render file
+  /*! For all the pyramids in the model send their information to the render file */
   string data;
 
   //For all the pyramids in the model send their information to the render file
@@ -280,7 +285,7 @@ void renderer::file_pyramids(){
 
   //Extract the information about the hexahedrons
 
-  /* Extract the vertices from the hexahedrons */
+  /*! Extract the vertices from the hexahedrons */
 
   deque<Vector> vertices_from_pyramids;
 
