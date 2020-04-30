@@ -49,11 +49,11 @@ public:
 
 	void file_start();										///< This function is used to write some standard HTML code found at the start of the file.
 
-	void file_tetrahedrons();								///< This function is used to write all the JS code for all the tetrahedrons.
+	void file_tetrahedrons();								///< This function is used to write all the JS code for all of the tetrahedrons in the model.
 
-	void file_hexahedrons();								///< This function is used to write all the JS code for all the hexahedrons.
+	void file_hexahedrons();								///< This function is used to write all the JS code for all of the hexahedrons in the model.
 
-	void file_pyramids();									///< This is used to write all the JS code for all of the pyramids.
+	void file_pyramids();									///< This is used to write all the JS code for all of the pyramids in the model.
 
 	void file_end();										///< This function is used to write the closing code.
 	
