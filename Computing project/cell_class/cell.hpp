@@ -127,13 +127,14 @@ public:
 //-----------------------------------------------------------------------------
 
 //Function:
+/// The Tetrahedron class is a subclass of cell and contains the correct functions for a Tetrahedron shape.
 /**	
-	Tetrahedron Subclass
-
-	- Calculate the tetrahedrons weight
-	- Calculate the centre of gravity 
-	- Calculate the volume 
-
+*	Tetrahedron Subclass
+*
+*	- Calculate the tetrahedrons weight
+*	- Calculate the centre of gravity 
+*	- Calculate the volume 
+*
 */
 
 
@@ -157,6 +158,7 @@ public:
 //	
 //-----------------------------------------------------------------------------
 
+/// The Pyramid class is a subclass of the Cell Class and contains the correct functions for a Pyramid shape.
 
 class pyramid : public cell
 {
@@ -176,6 +178,7 @@ public:
 //	
 //-----------------------------------------------------------------------------
 
+/// The Hexahedron class is a subclass of the cell class and contains all the correct functions for a Hexahedron shape.
 
 class hexahedron : public cell
 {
