@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['savenewfile',['saveNewFile',['../classmodel.html#ab009473cbe9ee25e0da0cf50db18f911',1,'model']]],
   ['set',['set',['../classmaterial.html#aeae1c456e483c6612f0ecbc2b7f12f6d',1,'material::set()'],['../class_vector.html#ae1573d6635cb93e8b970a0e7252eeb51',1,'Vector::set()']]],
   ['set_5fcog',['set_cog',['../classcell.html#ae3bcb43e2e46c137e65552aa73ba20d1',1,'cell']]],
   ['set_5fmaterial',['set_material',['../classcell.html#a3d43d6a6bacd9145aded4ce1e734e361',1,'cell']]],
