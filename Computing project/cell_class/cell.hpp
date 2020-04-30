@@ -40,43 +40,43 @@ class cell
 {
 
 protected: 
-	char shape;
+	char shape;							///< Shape 't','p' or 'h' corresponds to tetrahedron, pyramid or hexahedron. 
 
-	material cell_material;				//Cell material
+	material cell_material;				///< Cell material
 
-	int id;								//unique id
+	int id;								///< Unique id
 
-	float volume;						//Volume 
+	float volume;						///< Volume 
 
 
 private:
 
 //private data
 	
-	std::deque<Vector> vertices;					//Array of vector objects
+	std::deque<Vector> vertices;		///< Array of vector objects
 
-	Vector cog;							//Centre of Gravity
+	Vector cog;							///< Centre of Gravity
 
-	float weight;						//Weight
+	float weight;						///< Weight
 	
 
 public:
 	//------------------------- standard class functions -----------------------
 
-	cell(std::deque<Vector> vertices_in, material _cell_material); 		//constructor for list of vertices
+	cell(std::deque<Vector> vertices_in, material _cell_material); 		///< constructor for list of vertices
 
-	cell();								//constructor for 0 values supplied
+	cell();																///< constructor for 0 values supplied
 
-	~cell();							//Destructor
+	~cell();															///< Destructor
 
-	cell(const cell& a);				//Copy Constructor
+	cell(const cell& a);												///< Copy Constructor
 
-	cell& operator=(const cell& a);		//Assigment Operator
+	cell& operator=(const cell& a);										///< Assigment Operator
 
 	//-------------------------  getter/setter functions ----------------------
-	int getId();
+	int getId();														///< Getter function for cell id
 
-	void setId(int _id);
+	void setId(int _id);												
 
 	void set_material(material _cell_material);
 
