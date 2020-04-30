@@ -7,13 +7,15 @@
 
 //Copyright: Matt Haywood
 
-/* This class defines a material, it must hold the following properites:
+/// The Material class holds information about a material. It holds the ID, Name, Colour and Density of the material.
 
-- ID
-- Name
-- Colour
-- Density
-
+/** This class defines a material, it must hold the following properites:
+*
+*- ID
+*- Name
+*- Colour
+*- Density
+*
 */
 
 
@@ -33,25 +35,25 @@ private:
 
 public:
 	
-	material(int _ID, std::string _name, std::string _colour, float _density); 	//constructor for when all information is supplied
+	material(int _ID, std::string _name, std::string _colour, float _density); 		///< constructor for when all information is supplied
 
-	material();
+	material();																		///< constructor for when none of the information is supplied
 
-	~material();																	//Destructor
+	~material();																	///< Destructor
 
-	material(const material& a);													//Copy Constructor
+	material(const material& a);													///< Copy Constructor
 
-	material& operator=(const material& a);											//Assigment Operator
+	material& operator=(const material& a);											///< Assigment Operator
 
-	float getId(); 			 														//Getter
+	float getId(); 			 														///< Getter
 
-	std::string getName(); 		 													//Getter
+	std::string getName(); 		 													///< Getter
 
-	std::string getColour(); 														//Getter
+	std::string getColour(); 														///< Getter
 	
-	float getDensity(); 	 														//Getter
+	float getDensity(); 	 														///< Getter
 
-	void set();																		//Setter
+	void set();																		///< Setter
 };
 
 

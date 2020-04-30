@@ -81,6 +81,11 @@ void Vector::set(char d, float value){
 }
 
 float Vector::dot(const Vector& a){
+
+	/*! Dot product of a(x,y,z) and b(x,y,z) = 
+		(ax * bx) + (ay * by) + (az * bz)
+
+	*/
 	
 	float dotx = x * a.x;
 	float doty = y * a.y;
@@ -92,7 +97,7 @@ float Vector::dot(const Vector& a){
 
 Vector& Vector::cross(const Vector& b){
 
-	/* cross product of a(x,y,z) and b(x,y,x) = 
+	/*! cross product of a(x,y,z) and b(x,y,z) = 
 
 	cx = aybz - azby
 	cy = azbx - axbz

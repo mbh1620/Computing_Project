@@ -10,16 +10,18 @@
 
 //Copyright: Matt Haywood
 
-/* 
+/// The Renderer class is used to create a renderer using the Three.js visualiser. It will then output a .html file which contains the 3d viewer with the correct objects.
 
-This class will contain the functions for creating a three.js file
-
-//Function to create file start.
-
-//Function to add objects.
-
-//Function to create file end.
-
+/**
+*
+*This class will contain the functions for creating a three.js file
+*
+*Function to create file start.
+*
+*Function to add objects.
+*
+*Function to create file end.
+*
 */
 
 class renderer{
@@ -31,29 +33,29 @@ private:
 	ofstream outfile;
 
 public:
-	renderer(model _the_model);								//Constructor
+	renderer(model _the_model);								///< Constructor
 	
-	~renderer();												//Destructor
+	~renderer();											///< Destructor
 
-	renderer(const renderer& a);					 			//Copy Constructor
+	renderer(const renderer& a);					 		///< Copy Constructor
 
-	renderer& operator=(const renderer& a);						//Assignment Operator
+	renderer& operator=(const renderer& a);					///< Assignment Operator
 
-	model& get_model();
+	model& get_model();										///< This function takes in a model object and copies it to the member variable the_model.
 
-	void open_file();				
+	void open_file();										///< This function opens a new file to write the html and JavaScript code to.
 
-	void close_file();
+	void close_file();										///< This function is used to close the file once the code has been written in. 
 
-	void file_start();
+	void file_start();										///< This function is used to write some standard HTML code found at the start of the file.
 
-	void file_tetrahedrons();
+	void file_tetrahedrons();								///< This function is used to write all the JS code for all the tetrahedrons.
 
-	void file_hexahedrons();
+	void file_hexahedrons();								///< This function is used to write all the JS code for all the hexahedrons.
 
-	void file_pyramids();
+	void file_pyramids();									///< This is used to write all the JS code for all of the pyramids.
 
-	void file_end();
+	void file_end();										///< This function is used to write the closing code.
 	
 };
 
