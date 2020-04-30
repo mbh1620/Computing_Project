@@ -80,10 +80,15 @@ target_link_libraries( 3DViewer 3d_viewer_libs)
 
 install(TARGETS 3DViewer 3d_viewer_libs
     RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib/static
-    BUNDLE DESTINATION bin
-    ) 
+    LIBRARY DESTINATION ./3DViewer.app/lib
+    ARCHIVE DESTINATION ./3DViewer.app/lib/static
+    BUNDLE DESTINATION ./
+    )
+
+INSTALL(DIRECTORY ../Test\ Objects DESTINATION ./3DViewer.app)
+INSTALL(DIRECTORY ../Test\ Objects DESTINATION ./)
+
+
 
 set_target_properties(3DViewer 
 PROPERTIES
@@ -102,6 +107,6 @@ set(dirs2 "${vtk_dlls_dir}")
 
 set(dirs "${qt_dlls_dir}")
 
-install_qt5_executable("bin/3DViewer.app" "" "" "${dirs}" "" "")
+install_qt5_executable("3DViewer.app" "" "" "${dirs}" "" "")
 
 

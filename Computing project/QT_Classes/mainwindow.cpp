@@ -68,7 +68,7 @@ ui->setupUi( this );
         
 // note that vtkWidget is the name I gave to my QtVTKOpenGLWidget in Qt // creator
   
-std::string inputFilename = "../../Test Objects/Team36Logo.stl";
+std::string inputFilename = "./Test Objects/Team36Logo.stl";
 
 QString file_name = QString::fromStdString(inputFilename);
 
@@ -219,7 +219,7 @@ delete ui; }
 
 void MainWindow::openFile() 
 { 
-        QDir dir("../../Test Objects");
+        QDir dir("./Test Objects");
         
         QString name = dir.absolutePath();
 
