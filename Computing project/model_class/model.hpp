@@ -40,6 +40,8 @@
 
 using namespace std;
 
+/// The model class is used for reading in model entities from a  VTK style datafile. The model class is also responsible for saving models to a VTK style file.
+
 class model
 {
 
