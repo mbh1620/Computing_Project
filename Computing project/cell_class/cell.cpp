@@ -37,7 +37,7 @@ float volume_of_tetra(Vector vertices[]){
 //-----------------------------------------------------------------------------
 
 /**
-	The implementation of the cell class
+* The implementation of the cell class
 */
 
 int cell::getId(){			
@@ -64,7 +64,9 @@ char cell::get_shape(){
 	return shape;
 }
 
-cell::cell(std::deque<Vector> vertices_in, material _cell_material){		//Constructor for list of vertices
+cell::cell(std::deque<Vector> vertices_in, material _cell_material){		/*! The Constructor for cell takes in a list of vertices, and a material. It then copys these
+																				vertices and material to itself. In the standard cell construction a shape is not defined and 
+																				so the shape is just 'n'.  */
 
 	vertices = vertices_in;
 
