@@ -103,8 +103,8 @@ void model::saveNewFile(string filename){
 }
 
 void model::material_parser(string material_data){
-	/*! Code for interpreting a material line.
-	
+	/*! This function is for interpreting a material line and then creating a material with the correct information parsed from the data file.
+
 		Example line for a material:
 			m 0 8960 b87373 copper */
 	
@@ -133,7 +133,7 @@ void model::material_parser(string material_data){
 }
 
 void model::vertex_parser(string vertex_data){
-	/*! Code for interpreting a vertex line.
+	/*! This function is for interpreting a vertex line and creating a vertex with the correct x,y and z values parsed in from the data file.
 
 		Vector example line in the file:
 			v 0 0. 0. 0.
@@ -166,7 +166,7 @@ void model::vertex_parser(string vertex_data){
 }
 
 void model::cell_parser(string cell_data){
-	/*! Code for interpreting a cell.
+	/*! This function is for interpreting a cell and then creating a cell with the correct information parsed from the data file. 
 
 			Example cell line: 
 				c 1 t 1 8 9 10 11 */
