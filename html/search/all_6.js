@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['operator_2b',['operator+',['../class_vector.html#a219655b46ffcae5f3035c7efb6fa6ac5',1,'Vector']]],
-  ['operator_2d',['operator-',['../class_vector.html#ad4330d4d92306d14309927d20d956ee9',1,'Vector']]],
-  ['operator_3d',['operator=',['../classcell.html#a28f8043a576cf1f5218d2089e9c84178',1,'cell::operator=()'],['../class_vector.html#a2b7a20a694e2ce2831a0b1f04b58990a',1,'Vector::operator=()']]]
+  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]],
+  ['material',['material',['../classmaterial.html',1,'material'],['../classmaterial.html#ae93d44fa5f9cc412445e660a0ab3bd2c',1,'material::material(int _ID, std::string _name, std::string _colour, float _density)'],['../classmaterial.html#abcbc2f61c24746fe8923983a4ba39d1e',1,'material::material()'],['../classmaterial.html#a943438e128535c95d5387dac9e653cee',1,'material::material(const material &amp;a)']]],
+  ['matrix',['matrix',['../classmatrix.html',1,'']]],
+  ['model',['model',['../classmodel.html',1,'']]]
 ];

@@ -134,13 +134,11 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#ae1573d6635cb93e8b970a0e7252eeb51">set</a> (char d, float value)</td></tr>
 <tr class="memdesc:ae1573d6635cb93e8b970a0e7252eeb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setter set_value(x,y or z, value to change to) <br /></td></tr>
 <tr class="separator:ae1573d6635cb93e8b970a0e7252eeb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8198c38c4926b1cca0e5beb7e2794f39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8198c38c4926b1cca0e5beb7e2794f39"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a8198c38c4926b1cca0e5beb7e2794f39">dot</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;a)</td></tr>
-<tr class="memdesc:a8198c38c4926b1cca0e5beb7e2794f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the dot product. <br /></td></tr>
+<tr class="memitem:a8198c38c4926b1cca0e5beb7e2794f39"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a8198c38c4926b1cca0e5beb7e2794f39">dot</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;a)</td></tr>
+<tr class="memdesc:a8198c38c4926b1cca0e5beb7e2794f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the dot product.  <a href="#a8198c38c4926b1cca0e5beb7e2794f39">More...</a><br /></td></tr>
 <tr class="separator:a8198c38c4926b1cca0e5beb7e2794f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae761d8dd8e6dd03b0e6c3630de3680ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae761d8dd8e6dd03b0e6c3630de3680ca"></a>
-<a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#ae761d8dd8e6dd03b0e6c3630de3680ca">cross</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;b)</td></tr>
-<tr class="memdesc:ae761d8dd8e6dd03b0e6c3630de3680ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the cross product. <br /></td></tr>
+<tr class="memitem:ae761d8dd8e6dd03b0e6c3630de3680ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#ae761d8dd8e6dd03b0e6c3630de3680ca">cross</a> (const <a class="el" href="class_vector.html">Vector</a> &amp;b)</td></tr>
+<tr class="memdesc:ae761d8dd8e6dd03b0e6c3630de3680ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the cross product.  <a href="#ae761d8dd8e6dd03b0e6c3630de3680ca">More...</a><br /></td></tr>
 <tr class="separator:ae761d8dd8e6dd03b0e6c3630de3680ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -157,7 +155,47 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </ul>
 </li>
 </ul>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae761d8dd8e6dd03b0e6c3630de3680ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector.html">Vector</a> &amp; Vector::cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs the cross product. </p>
+<p>cross product of a(x,y,z) and b(x,y,z) =</p>
+<p>cx = aybz - azby cy = azbx - axbz cz = axby - aybx</p>
+
+</div>
+</div>
+<a class="anchor" id="a8198c38c4926b1cca0e5beb7e2794f39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Vector::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector.html">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs the dot product. </p>
+<p>Dot product of a(x,y,z) and b(x,y,z) = (ax * bx) + (ay * by) + (az * bz)</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/<a class="el" href="vector_8hpp_source.html">vector.hpp</a></li>
 <li>/home/travis/build/mbh1620/Computing_Project/Computing project/vector_class/vector.cpp</li>
 </ul>

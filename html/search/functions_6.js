@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['set',['set',['../class_vector.html#ae1573d6635cb93e8b970a0e7252eeb51',1,'Vector']]],
-  ['set_5fcog',['set_cog',['../classcell.html#ae3bcb43e2e46c137e65552aa73ba20d1',1,'cell']]],
-  ['set_5fmaterial',['set_material',['../classcell.html#a3d43d6a6bacd9145aded4ce1e734e361',1,'cell']]],
-  ['set_5fshape',['set_shape',['../classcell.html#a1419824352fd1ae2ee2b9c25bfae8383',1,'cell']]],
-  ['set_5fvertices',['set_vertices',['../classcell.html#a3ead2cf338158ef2bde1f3e64b1d8fce',1,'cell']]],
-  ['set_5fvolume',['set_volume',['../classcell.html#ac77017d9c0c8df096d4194209c1db939',1,'cell']]],
-  ['set_5fweight',['set_weight',['../classcell.html#a13fb02cf71ca4359a383addfe1a8fdd3',1,'cell']]],
-  ['setid',['setId',['../classcell.html#a14e98242e7f2e99c49a147e4db077bf4',1,'cell']]]
+  ['open_5ffile',['open_file',['../classrenderer.html#a82e89e29b61a9fe306010a91f6c52fdf',1,'renderer']]],
+  ['operator_2b',['operator+',['../class_vector.html#a219655b46ffcae5f3035c7efb6fa6ac5',1,'Vector']]],
+  ['operator_2d',['operator-',['../class_vector.html#ad4330d4d92306d14309927d20d956ee9',1,'Vector']]],
+  ['operator_3d',['operator=',['../classcell.html#a28f8043a576cf1f5218d2089e9c84178',1,'cell::operator=()'],['../classmaterial.html#a442706915afbfd236c6fba5305383773',1,'material::operator=()'],['../classrenderer.html#a41f8a93e14494d8550b1dd4acd879703',1,'renderer::operator=()'],['../class_vector.html#a2b7a20a694e2ce2831a0b1f04b58990a',1,'Vector::operator=()']]]
 ];

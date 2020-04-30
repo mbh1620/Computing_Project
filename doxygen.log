@@ -94,8 +94,6 @@ Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:21: warning: Compound MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.hpp:40: warning: Compound model is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp:162: warning: Compound pyramid is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:21: warning: Compound material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:25: warning: Compound renderer is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.cpp:8: warning: Member volume_of_tetra(Vector vertices[]) (function) of file cell.cpp is not documented.
 Model2.mod.txt...
 Preprocessing /home/travis/build/mbh1620/Computing_Project/Computing project/Test Objects/proprietry_files/ExampleModel3.mod.txt...
@@ -205,14 +203,6 @@ Gener/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/m
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:48: warning: Member models (variable) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:50: warning: Member is_checked (variable) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:54: warning: Member item_length (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:36: warning: Member material(int _ID, std::string _name, std::string _colour, float _density) (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:42: warning: Member material(const material &a) (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:44: warning: Member operator=(const material &a) (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:46: warning: Member getId() (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:48: warning: Member getName() (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:50: warning: Member getColour() (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:52: warning: Member getDensity() (function) of class material is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/material_class/material.hpp:54: warning: Member set() (function) of class material is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:52: warning: Member matrix(int first, int second_dimension, float data[]) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:56: warning: Member matrix(const matrix &a) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:58: warning: Member operator=(const matrix &a) (function) of class matrix is not documented.
@@ -230,17 +220,6 @@ Gener/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/m
 /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.hpp:93: warning: Member get_vertex_num() (function) of class model is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.hpp:95: warning: Member get_cell_num() (function) of class model is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.hpp:97: warning: Member get_cell_type() (function) of class model is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:34: warning: Member renderer(model _the_model) (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:38: warning: Member renderer(const renderer &a) (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:40: warning: Member operator=(const renderer &a) (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:42: warning: Member get_model() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:44: warning: Member open_file() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:46: warning: Member close_file() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:48: warning: Member file_start() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:50: warning: Member file_tetrahedrons() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:52: warning: Member file_hexahedrons() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:54: warning: Member file_pyramids() (function) of class renderer is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.hpp:56: warning: Member file_end() (function) of class renderer is not documented.
 ating group documentation...
 Generating class documentation...
 Generating docs for compound cell...
@@ -270,5 +249,5 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 writing tag file...
-lookup cache used 165/65536 hits=1013 misses=173
+lookup cache used 156/65536 hits=991 misses=164
 finished...

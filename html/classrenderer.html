@@ -90,44 +90,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">renderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The Renderer class is used to create a renderer using the Three.js visualiser. It will then output a .html file which contains the 3d viewer with the correct objects.  
+ <a href="classrenderer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="renderer_8hpp_source.html">renderer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1ad81f13d6458ecf99e223a8b321341e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ad81f13d6458ecf99e223a8b321341e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b> (<a class="el" href="classmodel.html">model</a> _the_model)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a1ad81f13d6458ecf99e223a8b321341e">renderer</a> (<a class="el" href="classmodel.html">model</a> _the_model)</td></tr>
+<tr class="memdesc:a1ad81f13d6458ecf99e223a8b321341e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:a1ad81f13d6458ecf99e223a8b321341e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c7f1cfc1cd1292c2ec8519dacdce0a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c7f1cfc1cd1292c2ec8519dacdce0a6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a5c7f1cfc1cd1292c2ec8519dacdce0a6">~renderer</a> ()</td></tr>
+<tr class="memdesc:a5c7f1cfc1cd1292c2ec8519dacdce0a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
+<tr class="separator:a5c7f1cfc1cd1292c2ec8519dacdce0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae357c5e13406c52a374f732157976312"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae357c5e13406c52a374f732157976312"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>renderer</b> (const <a class="el" href="classrenderer.html">renderer</a> &amp;a)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#ae357c5e13406c52a374f732157976312">renderer</a> (const <a class="el" href="classrenderer.html">renderer</a> &amp;a)</td></tr>
+<tr class="memdesc:ae357c5e13406c52a374f732157976312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy Constructor. <br /></td></tr>
 <tr class="separator:ae357c5e13406c52a374f732157976312"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41f8a93e14494d8550b1dd4acd879703"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a41f8a93e14494d8550b1dd4acd879703"></a>
-<a class="el" href="classrenderer.html">renderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classrenderer.html">renderer</a> &amp;a)</td></tr>
+<a class="el" href="classrenderer.html">renderer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a41f8a93e14494d8550b1dd4acd879703">operator=</a> (const <a class="el" href="classrenderer.html">renderer</a> &amp;a)</td></tr>
+<tr class="memdesc:a41f8a93e14494d8550b1dd4acd879703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment Operator. <br /></td></tr>
 <tr class="separator:a41f8a93e14494d8550b1dd4acd879703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e8b0a655f9d14e6cc1fbef80e3e1518"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e8b0a655f9d14e6cc1fbef80e3e1518"></a>
-<a class="el" href="classmodel.html">model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_model</b> ()</td></tr>
+<a class="el" href="classmodel.html">model</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a4e8b0a655f9d14e6cc1fbef80e3e1518">get_model</a> ()</td></tr>
+<tr class="memdesc:a4e8b0a655f9d14e6cc1fbef80e3e1518"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function takes in a model object and copies it to the member variable the_model. <br /></td></tr>
 <tr class="separator:a4e8b0a655f9d14e6cc1fbef80e3e1518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82e89e29b61a9fe306010a91f6c52fdf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82e89e29b61a9fe306010a91f6c52fdf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>open_file</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a82e89e29b61a9fe306010a91f6c52fdf">open_file</a> ()</td></tr>
+<tr class="memdesc:a82e89e29b61a9fe306010a91f6c52fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function opens a new file to write the html and JavaScript code to. <br /></td></tr>
 <tr class="separator:a82e89e29b61a9fe306010a91f6c52fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae097417bfd4106a318ce121b63b2bbaf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae097417bfd4106a318ce121b63b2bbaf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>close_file</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#ae097417bfd4106a318ce121b63b2bbaf">close_file</a> ()</td></tr>
+<tr class="memdesc:ae097417bfd4106a318ce121b63b2bbaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to close the file once the code has been written in. <br /></td></tr>
 <tr class="separator:ae097417bfd4106a318ce121b63b2bbaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0372748885b0d24bd40e0f4f90887ad7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0372748885b0d24bd40e0f4f90887ad7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>file_start</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a0372748885b0d24bd40e0f4f90887ad7">file_start</a> ()</td></tr>
+<tr class="memdesc:a0372748885b0d24bd40e0f4f90887ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to write some standard HTML code found at the start of the file. <br /></td></tr>
 <tr class="separator:a0372748885b0d24bd40e0f4f90887ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afac642d1c0c36078380ca83736cf2bf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afac642d1c0c36078380ca83736cf2bf2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>file_tetrahedrons</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#afac642d1c0c36078380ca83736cf2bf2">file_tetrahedrons</a> ()</td></tr>
+<tr class="memdesc:afac642d1c0c36078380ca83736cf2bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to write all the JS code for all the tetrahedrons. <br /></td></tr>
 <tr class="separator:afac642d1c0c36078380ca83736cf2bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bbff886214e67d0824f32e3340595af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bbff886214e67d0824f32e3340595af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>file_hexahedrons</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a8bbff886214e67d0824f32e3340595af">file_hexahedrons</a> ()</td></tr>
+<tr class="memdesc:a8bbff886214e67d0824f32e3340595af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to write all the JS code for all the hexahedrons. <br /></td></tr>
 <tr class="separator:a8bbff886214e67d0824f32e3340595af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05f3d2894ca99e4d36de75366ea21068"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05f3d2894ca99e4d36de75366ea21068"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>file_pyramids</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#a05f3d2894ca99e4d36de75366ea21068">file_pyramids</a> ()</td></tr>
+<tr class="memdesc:a05f3d2894ca99e4d36de75366ea21068"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is used to write all the JS code for all of the pyramids. <br /></td></tr>
 <tr class="separator:a05f3d2894ca99e4d36de75366ea21068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0964fb59cbb154656e657e1b1dfefd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0964fb59cbb154656e657e1b1dfefd8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>file_end</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrenderer.html#aa0964fb59cbb154656e657e1b1dfefd8">file_end</a> ()</td></tr>
+<tr class="memdesc:aa0964fb59cbb154656e657e1b1dfefd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to write the closing code. <br /></td></tr>
 <tr class="separator:aa0964fb59cbb154656e657e1b1dfefd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The Renderer class is used to create a renderer using the Three.js visualiser. It will then output a .html file which contains the 3d viewer with the correct objects. </p>
+<p>This class will contain the functions for creating a three.js file</p>
+<p>Function to create file start.</p>
+<p>Function to add objects.</p>
+<p>Function to create file end. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/<a class="el" href="renderer_8hpp_source.html">renderer.hpp</a></li>
 <li>/home/travis/build/mbh1620/Computing_Project/Computing project/renderer_class/renderer.cpp</li>
 </ul>
