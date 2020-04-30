@@ -90,7 +90,6 @@ Preprocessing /home/travis/build/mbh1620/Computing_Project/Computing project/Tes
 Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test Objects/proprietry_files/ExampleModel1.mod.txt...
 Preprocessing /home/travis/build/mbh1620/Computing_Project/Computing project/Test Objects/proprietry_files/ExampleModel2.mod.txt...
 Parsing file /home/travis/build/mbh1620/Computing_Project/Computing project/Test Objects/proprietry_files/Example/home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:43: warning: Compound matrix is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:21: warning: Compound MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.hpp:44: warning: Compound model is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.cpp:8: warning: Member volume_of_tetra(Vector vertices[]) (function) of file cell.cpp is not documented.
 Model2.mod.txt...
@@ -167,39 +166,10 @@ Generating file documentation...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.cpp...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/cell_class/cell.hpp...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/model_class/model.cpp...
-Generating docs for file //home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:61: warning: Member openFile() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:63: warning: Member on_file_add(QString filename) (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:65: warning: Member Cross_Section_Analysis(bool checked) (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:67: warning: Member enable_distance_widget(bool checked) (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:69: warning: Member Cross_Section_Analysis_Width(int value) (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:71: warning: Member transform() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:73: warning: Member delete_model() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:75: warning: Member model_details() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:77: warning: Member changeCamera() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:79: warning: Member set_bg_colour() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:81: warning: Member Set_Model_Color() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:83: warning: Member Reset_Camera() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:85: warning: Member Set_Opacity() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:87: warning: Member show_COG(bool checked) (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:89: warning: Member Save_As_STL_File() (slot) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:24: warning: Member MainWindow(QWidget *parent=0, std::string Filename="Boat.stl") (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:52: warning: Member openCustomFile(std::string fileName) (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:56: warning: Member check_item_array_length() (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:58: warning: Member disable_distance_widget() (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:26: warning: Member renderWindow (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:28: warning: Member Filename (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:30: warning: Member reader (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:32: warning: Member mapper (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:34: warning: Member mapper2 (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:36: warning: Member actor (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:38: warning: Member renderer (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:40: warning: Member renderWindowInteractor (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:42: warning: Member colors (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:44: warning: Member cutPlane (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:46: warning: Member distanceWidget (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:48: warning: Member models (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:50: warning: Member is_checked (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:54: warning: Member item_length (variable) of class MainWindow is not documented.
+Generating docs for file //home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:31: warning: Member MainWindow(QWidget *parent=0, std::string Filename="Boat.stl") (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:63: warning: Member check_item_array_length() (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:65: warning: Member disable_distance_widget() (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:61: warning: Member item_length (variable) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:52: warning: Member matrix(int first, int second_dimension, float data[]) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:56: warning: Member matrix(const matrix &a) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:58: warning: Member operator=(const matrix &a) (function) of class matrix is not documented.
@@ -235,5 +205,5 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 writing tag file...
-lookup cache used 163/65536 hits=1005 misses=171
+lookup cache used 151/65536 hits=944 misses=159
 finished...

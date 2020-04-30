@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['savenewfile',['saveNewFile',['../classmodel.html#ab009473cbe9ee25e0da0cf50db18f911',1,'model']]],
-  ['set',['set',['../classmaterial.html#aeae1c456e483c6612f0ecbc2b7f12f6d',1,'material::set()'],['../class_vector.html#ae1573d6635cb93e8b970a0e7252eeb51',1,'Vector::set()']]],
-  ['set_5fcog',['set_cog',['../classcell.html#ae3bcb43e2e46c137e65552aa73ba20d1',1,'cell']]],
-  ['set_5fmaterial',['set_material',['../classcell.html#a3d43d6a6bacd9145aded4ce1e734e361',1,'cell']]],
-  ['set_5fshape',['set_shape',['../classcell.html#a1419824352fd1ae2ee2b9c25bfae8383',1,'cell']]],
-  ['set_5fvertices',['set_vertices',['../classcell.html#a3ead2cf338158ef2bde1f3e64b1d8fce',1,'cell']]],
-  ['set_5fvolume',['set_volume',['../classcell.html#ac77017d9c0c8df096d4194209c1db939',1,'cell']]],
-  ['set_5fweight',['set_weight',['../classcell.html#a13fb02cf71ca4359a383addfe1a8fdd3',1,'cell']]],
-  ['setid',['setId',['../classcell.html#a14e98242e7f2e99c49a147e4db077bf4',1,'cell']]]
+  ['readinfile',['readInFile',['../classmodel.html#a72b29f38c33e1e42b6251d5c4ebb05ff',1,'model']]],
+  ['renderer',['renderer',['../classrenderer.html#a1ad81f13d6458ecf99e223a8b321341e',1,'renderer::renderer(model _the_model)'],['../classrenderer.html#ae357c5e13406c52a374f732157976312',1,'renderer::renderer(const renderer &amp;a)']]],
+  ['reset_5fcamera',['Reset_Camera',['../class_main_window.html#a926d0e47b8e20bb0b03d5fb85504e89c',1,'MainWindow']]]
 ];
