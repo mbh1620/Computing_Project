@@ -7,12 +7,9 @@
 #include <vtkTransform.h>
 #include <vtkAppendPolyData.h>
 #include <vtkDataSetMapper.h>
-
 #include <vtkInteractorStyleTrackballCamera.h>
-
 #include <vtkNew.h>
 #include <../renderer_class/renderer.hpp>
-
 #include <vtkMassProperties.h>
 #include <vtkTriangleFilter.h>
 #include <vtkFillHolesFilter.h>
@@ -22,15 +19,11 @@
 #include <vtkMath.h>
 #include <vtkTransform.h>
 #include <vtkTransformPolyDataFilter.h>
-
 #include <vtkSTLWriter.h>
-
 #include <vtkDistanceRepresentation.h>
 #include <vtkDistanceWidget.h>
-
 #include <vtkCenterOfMass.h>
 #include <vtkArrowSource.h>
-
 #include <vtkPyramid.h>
 #include <vtkTetra.h>
 #include <vtkHexahedron.h>
@@ -57,13 +50,13 @@ MainWindow::MainWindow(QWidget *parent, std::string Filename) : QMainWindow(pare
 
   //iniatialize the actor array to null
 
-  //Set item_length
+
  
 
 
-    // standard call to setup Qt UI (same as previously)
+// standard call to setup Qt UI (same as previously)
 ui->setupUi( this );
-        // Now need to create a VTK render window and link it to the QtVTK widget
+// Now need to create a VTK render window and link it to the QtVTK widget
 
         
 // note that vtkWidget is the name I gave to my QtVTKOpenGLWidget in Qt // creator
