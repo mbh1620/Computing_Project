@@ -30,9 +30,9 @@ void model::readInFile(string filename){
 	/*! This function reads in the file, it then detects a '#', 'm', 'v' or 'c'. 
 	
 	- # -- Means to ignore the line.
-	- m -- Material. 
+	- m -- material. 
 	- v -- Vector.
-	- c -- Cell.
+	- c -- cell.
 
 	if any of these are found they then call the corresponding parser functions.
 
