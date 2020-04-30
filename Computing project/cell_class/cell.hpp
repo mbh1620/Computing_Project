@@ -20,7 +20,7 @@
 
 //Copyright: Matt Haywood
 
-///< The Cell Class is used to create a pyramid, tetrahedron or hexahedron.
+/// The Cell Class is used to create a pyramid, tetrahedron or hexahedron.
 
 /**
 *A cell is a shape that is defined by 2 or more vertices (vectors). The following types of
