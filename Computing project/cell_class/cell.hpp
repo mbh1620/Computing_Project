@@ -20,7 +20,7 @@
 
 //Copyright: Matt Haywood
 
-
+///< The Cell Class is used to create a pyramid, tetrahedron or hexahedron.
 
 /**
 *A cell is a shape that is defined by 2 or more vertices (vectors). The following types of
@@ -38,7 +38,7 @@
 */
 
 
-class cell 								///< The Cell Class is used to create a pyramid, tetrahedron or hexahedron.
+class cell 								
 {
 
 protected: 
@@ -65,7 +65,7 @@ private:
 public:
 	//------------------------- standard class functions -----------------------
 
-	cell(std::deque<Vector> vertices_in, material _cell_material); 		///< constructor for list of vertices
+	cell(std::deque<Vector> vertices_in, material _cell_material); 		///< Constructor for list of vertices
 
 	cell();																///< constructor for 0 values supplied
 
