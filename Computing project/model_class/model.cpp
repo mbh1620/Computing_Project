@@ -103,7 +103,8 @@ void model::saveNewFile(string filename){
 }
 
 void model::material_parser(string material_data){
-	/*! Code for interpreting a material line
+	/*! Code for interpreting a material line.
+	
 		Example line for a material:
 			m 0 8960 b87373 copper */
 	
@@ -132,7 +133,8 @@ void model::material_parser(string material_data){
 }
 
 void model::vertex_parser(string vertex_data){
-	/*! Code for interpreting a vertex line
+	/*! Code for interpreting a vertex line.
+
 		Vector example line in the file:
 			v 0 0. 0. 0.
 			v 1 1. 0. 0. */
@@ -164,7 +166,8 @@ void model::vertex_parser(string vertex_data){
 }
 
 void model::cell_parser(string cell_data){
-	/*! Code for interpreting a cell 
+	/*! Code for interpreting a cell.
+
 			Example cell line: 
 				c 1 t 1 8 9 10 11 */
 	deque<string> words;
