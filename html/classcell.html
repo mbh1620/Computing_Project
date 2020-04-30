@@ -107,9 +107,8 @@ Inheritance diagram for cell:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a67103f0fb45f9ce5e3dd3a4f91a6b49e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67103f0fb45f9ce5e3dd3a4f91a6b49e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcell.html#a67103f0fb45f9ce5e3dd3a4f91a6b49e">cell</a> (std::deque&lt; <a class="el" href="class_vector.html">Vector</a> &gt; vertices_in, <a class="el" href="classmaterial.html">material</a> _cell_material)</td></tr>
-<tr class="memdesc:a67103f0fb45f9ce5e3dd3a4f91a6b49e"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for list of vertices <br /></td></tr>
+<tr class="memitem:a67103f0fb45f9ce5e3dd3a4f91a6b49e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcell.html#a67103f0fb45f9ce5e3dd3a4f91a6b49e">cell</a> (std::deque&lt; <a class="el" href="class_vector.html">Vector</a> &gt; vertices_in, <a class="el" href="classmaterial.html">material</a> _cell_material)</td></tr>
+<tr class="memdesc:a67103f0fb45f9ce5e3dd3a4f91a6b49e"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for list of vertices  <a href="#a67103f0fb45f9ce5e3dd3a4f91a6b49e">More...</a><br /></td></tr>
 <tr class="separator:a67103f0fb45f9ce5e3dd3a4f91a6b49e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f9e893bce5c3f050bb20db0d0b615ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f9e893bce5c3f050bb20db0d0b615ca"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcell.html#a5f9e893bce5c3f050bb20db0d0b615ca">cell</a> ()</td></tr>
@@ -224,7 +223,37 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <p>A cell object should be able to calculate its own volume</p>
 <p>It should also be able to estimate its centre of gravity</p>
 <p>It should be able to estimate its weight. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a67103f0fb45f9ce5e3dd3a4f91a6b49e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cell::cell </td>
+          <td>(</td>
+          <td class="paramtype">std::deque&lt; <a class="el" href="class_vector.html">Vector</a> &gt;&#160;</td>
+          <td class="paramname"><em>vertices_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmaterial.html">material</a>&#160;</td>
+          <td class="paramname"><em>_cell_material</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>constructor for list of vertices </p>
+<p>The Constructor for cell takes in a list of vertices, and a material. It then copys these vertices and material to itself. In the standard cell construction a shape is not defined and so the shape is just 'n'. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a35471575a2e5f32253215a9102e526bf"></a>
 <div class="memitem">
 <div class="memproto">
