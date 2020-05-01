@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['on_5fcomponent_5fclick',['On_component_click',['../class_main_window.html#ad516d4bd811ef7e55ce51e5f7d0b5c90',1,'MainWindow']]],
   ['on_5ffile_5fadd',['on_file_add',['../class_main_window.html#a6336557f147467612014d1597991d1c0',1,'MainWindow']]],
   ['open_5ffile',['open_file',['../classrenderer.html#a82e89e29b61a9fe306010a91f6c52fdf',1,'renderer']]],
   ['opencustomfile',['openCustomFile',['../class_main_window.html#aa567076cfc766f5e6be2b51edab75114',1,'MainWindow']]],
