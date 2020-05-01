@@ -14,9 +14,9 @@ addons:
     - graphviz
 script:
 - cmake ./Computing\ project
-- make ../Test\ Mains/test1
-- make ../Test\ Mains/test2
-- make ../Test\ Mains/test3
+- make ./Computing\ project/Test\ Mains/test1
+- make ./Computing\ project/Test\ Mains/test2
+- make ./Computing\ project/Test\ Mains/test3
 - cd $TRAVIS_BUILD_DIR
 - chmod +x generateDocumentationAndDeploy.sh 
 - ls
