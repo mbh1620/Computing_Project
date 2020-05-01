@@ -12,6 +12,8 @@ addons:
     packages:
     - doxygen
     - graphviz
+compiler:
+  - clang
 script:
 - cmake ./Computing\ project/Test\ Mains/
 - ls
