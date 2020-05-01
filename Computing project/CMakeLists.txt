@@ -57,7 +57,8 @@ add_library( 3d_viewer_libs ./cell_class/cell.cpp
 			    ./renderer_class/renderer.cpp)
 
 
-#Add tests and test executables here
+#Add tests and test executables here -------------------------------
+
 
 add_executable(test1 ./Test\ Mains/Vector_test.cpp)
 
