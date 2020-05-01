@@ -8,7 +8,7 @@ add_library( 3d_viewer_libs ../cell_class/cell.cpp
 			    ../renderer_class/renderer.cpp)
 
 
-add_executable(test1 ./Test\ Mains/Vector_test.cpp)
+add_executable(test1 ./Vector_test.cpp)
 
 target_link_libraries(test1 3d_viewer_libs)
 
