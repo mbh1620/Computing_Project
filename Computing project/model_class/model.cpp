@@ -1,6 +1,7 @@
 /// \file
 #include "model.hpp"
 
+using namespace std;
 
 model::model(){
 	tetrahedrons = 0;
