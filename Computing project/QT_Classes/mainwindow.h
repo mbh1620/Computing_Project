@@ -15,7 +15,7 @@
 #include <vtkNamedColors.h>
 #include <deque>
 #include <vtkDistanceWidget.h>
-
+#include <../renderer_class/renderer.hpp>
 #include <QMainWindow>
 namespace Ui { class MainWindow; }
 
@@ -55,6 +55,8 @@ vtkNew<vtkPlane> cutPlane;                                                      
 vtkSmartPointer<vtkDistanceWidget> distanceWidget;                                              ///< A distance widget used in the measurement tool.
 
 std::deque<std::string> models;                                                                 ///< A deque to hold the names of the models.
+
+model model1;
 
 bool is_checked;                                                                                ///< A bool flag to see if a checkbox is checked.
 
@@ -96,6 +98,8 @@ public slots:
     void show_COG(bool checked);                                                                ///< Shows an arrow indicating the models centre of gravity.
 
     void Save_As_STL_File();                                                                    ///< This saves all the models on screen as a .STL file.
+
+    void On_component_click();                                                                  ///< This updates component lists on the component tab.
 
 private:
 Ui::MainWindow * ui;

@@ -11,7 +11,7 @@
 #include <vtkDataSetMapper.h>
 #include <vtkInteractorStyleTrackballCamera.h>
 #include <vtkNew.h>
-#include <../renderer_class/renderer.hpp>
+//#include <../renderer_class/renderer.hpp>
 #include <vtkMassProperties.h>
 #include <vtkTriangleFilter.h>
 #include <vtkFillHolesFilter.h>
@@ -170,6 +170,7 @@ connect(this->ui->pushButton_2, SIGNAL(released()), this, SLOT(delete_model()));
 connect(this->ui->pushButton_3, SIGNAL(released()), this, SLOT(transform()));
 
 connect(this->ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(model_details()));
+connect(this->ui->listWidget_2, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(On_component_click()));
 
 connect(this->ui->checkBox_3, SIGNAL(clicked(bool)), this, SLOT(enable_distance_widget(bool)));
 
@@ -324,11 +325,18 @@ void MainWindow::openCustomFile(std::string fileName){
 	cout << "Opened Custom file\n ";
 
 	//Get infomation from the renderer class about the tetrahedrons, pyramids and hexahedrons
-  model model1 = model();
+  model1 = model();
 
-  std::string filename = fileName;
+  std::string fileNam = fileName;
 
-  model1.readInFile(filename);
+	int pos;
+	pos = fileNam.find_last_of("/");
+	fileNam = fileNam.substr(pos+1);
+	QString filename = QString::fromStdString(fileNam);
+//Add the item for the components tab
+  	ui->listWidget_2->addItem(filename);
+
+  	model1.readInFile(fileName);
 
 
 
@@ -371,9 +379,16 @@ void MainWindow::openCustomFile(std::string fileName){
       pyramid->GetPointIds()->SetId(2,2);
       pyramid->GetPointIds()->SetId(3,3);
       pyramid->GetPointIds()->SetId(4,4);
+      
+      // string color = model1.get_list_of_cells()[i].get_material().getColour();
+
+      // double red = std::stod (color.substr(1,2));  
+      // double green = std::stod (color.substr(3,4));  
+      // double blue = std::stod (color.substr(5,6));  
+
+      // pyramid -> GetProperty() -> SetColor(red, green, blue);
 
       cells->InsertNextCell(pyramid);
-      
 
       ug->SetPoints(points);
       ug->InsertNextCell(pyramid->GetCellType(),pyramid->GetPointIds());
@@ -403,6 +418,14 @@ void MainWindow::openCustomFile(std::string fileName){
       tetra -> GetPointIds()->SetId(1,1);
       tetra -> GetPointIds()->SetId(2,2);
       tetra -> GetPointIds()->SetId(3,3);
+
+      // string color = model1.get_list_of_cells()[i].get_material().getColour();
+
+      // double red = std::stod (color.substr(1,2));  
+      // double green = std::stod (color.substr(3,4));  
+      // double blue = std::stod (color.substr(5,6));  
+
+      // tetra -> GetProperty() -> SetColor(red, green, blue);
 
       cells->InsertNextCell(tetra);
 
@@ -447,6 +470,14 @@ void MainWindow::openCustomFile(std::string fileName){
       hexa -> GetPointIds()->SetId(6,6);
       hexa -> GetPointIds()->SetId(7,7);
 
+      // string color = model1.get_list_of_cells()[i].get_material().getColour();
+
+      // double red = std::stod (color.substr(1,2));  
+      // double green = std::stod (color.substr(3,4));  
+      // double blue = std::stod (color.substr(5,6));  
+
+      // hexa -> GetProperty() -> SetColor(red, green, blue);
+
       cells->InsertNextCell(hexa);
       ug->SetPoints(points);
       ug->InsertNextCell(hexa->GetCellType(),hexa->GetPointIds());
@@ -468,7 +499,9 @@ void MainWindow::openCustomFile(std::string fileName){
 
   geometryfilter->Update();
 
-  vtkPolyData* polyData = geometryfilter->GetOutput();
+  vtkSmartPointer<vtkPolyData> polyData = geometryfilter->GetOutput();
+
+  vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
 
   mapper->SetInputData(polyData);  
 
@@ -479,7 +512,7 @@ void MainWindow::openCustomFile(std::string fileName){
 
   //Create a renderer, render window and interactor
 
-  renderer = vtkSmartPointer<vtkRenderer>::New();
+  //renderer = vtkSmartPointer<vtkRenderer>::New();
   
 
   renderWindow->AddRenderer(renderer);
@@ -624,6 +657,7 @@ void MainWindow::on_file_add(QString filename)
 	fileName = fileName.substr(pos+1);
 	filename = QString::fromStdString(fileName);
 	ui->listWidget->addItem(filename);
+	
 
 
 
@@ -637,6 +671,11 @@ void MainWindow::delete_model()
 
   if(number != -1){
     qDeleteAll(ui->listWidget->selectedItems());
+    qDeleteAll(ui->listWidget_2->selectedItems());
+	ui->listWidget_4->clear();
+    ui->listWidget_5->clear();
+    ui->listWidget_3->clear();
+
     renderer->RemoveActor(actor[number]);
 
     actor.erase(actor.begin()+number);
@@ -699,11 +738,11 @@ void MainWindow::transform()
 
   //Add a transform filter so that the transform is relayed into the data not just the actor
 
-  vtkSmartPointer<vtkPolyData> polydata = vtkPolyData::SafeDownCast(actor[number]->GetMapper()->GetInputAsDataSet());
+  vtkSmartPointer<vtkPolyData> polydatas = vtkPolyData::SafeDownCast(actor[number]->GetMapper()->GetInputAsDataSet());
 
   vtkSmartPointer<vtkTransformPolyDataFilter> pdfilter = vtkSmartPointer<vtkTransformPolyDataFilter>::New();
 
-  pdfilter->SetInputData(polydata);
+  pdfilter->SetInputData(polydatas);
   pdfilter->SetTransform(transform);
   pdfilter->Update();
 
@@ -1228,6 +1267,70 @@ void MainWindow::Save_As_STL_File(){
   stlWriter->Write();
 
 }
+
+//functions for the displaying of components in the proprietry models.
+
+
+void MainWindow::On_component_click(){
+/*! This function is for when an item on the component list is clicked. It will update the other lists with Cells, Materials and Vectors.*/
+	
+// First clear all the lists from any other components
+	ui->listWidget_4->clear();
+    ui->listWidget_5->clear();
+    ui->listWidget_3->clear();
+
+//Loop to update the vertices list
+
+for(int i = 0; i < model1.get_list_of_vertices().size(); i++ ){
+
+	string text;
+	QString text2;
+
+	text = "Id: " +  to_string(model1.get_list_of_vertices()[i].get('i')) + " X:" + to_string(model1.get_list_of_vertices()[i].get('x')) + " Y:" + to_string(model1.get_list_of_vertices()[i].get('y')) + " Z:" + to_string(model1.get_list_of_vertices()[i].get('z')) + "\n" ; 
+
+	cout<< text;
+
+	text2 = QString::fromStdString(text);
+
+	ui->listWidget_5->addItem(text2);
+
+}
+
+//Loop to update the material list
+
+for(int i =0; i < model1.get_list_of_materials().size(); i++){
+	string text;
+
+	QString text2;
+
+	text = "ID:" + to_string(model1.get_list_of_materials()[i].getId()) + " Name:" + model1.get_list_of_materials()[i].getName() + " Color:" + model1.get_list_of_materials()[i].getColour() + " Density:" + to_string(model1.get_list_of_materials()[i].getDensity()) + "\n" ;
+
+	text2 = QString::fromStdString(text);
+
+	ui->listWidget_3->addItem(text2);
+}
+
+//Loop to update the cell list 
+
+for(int i = 0; i < model1.get_list_of_cells().size(); i++){
+	string text;
+	QString text2;
+
+	text = "ID:" + to_string(model1.get_list_of_cells()[i].getId()) + " Shape:" + model1.get_list_of_cells()[i].get_shape() + " Material:" + model1.get_list_of_cells()[i].get_material().getName() + "\n";
+
+	text2 = QString::fromStdString(text);
+
+	ui->listWidget_4->addItem(text2);
+
+
+}
+
+
+
+
+}
+
+
 
 
 

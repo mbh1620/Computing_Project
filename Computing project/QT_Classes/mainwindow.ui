@@ -493,19 +493,6 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QCheckBox" name="checkBox_2">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>70</y>
-         <width>131</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Centre of Object </string>
-       </property>
-      </widget>
       <widget class="QSlider" name="horizontalSlider">
        <property name="geometry">
         <rect>
@@ -555,7 +542,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>90</y>
+         <y>70</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -598,6 +585,19 @@
        </property>
        <property name="text">
         <string>Colour</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>100</y>
+         <width>191</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Press 'w' - Wireframe 's' - Solid</string>
        </property>
       </widget>
      </widget>
@@ -1023,8 +1023,8 @@
        <rect>
         <x>90</x>
         <y>90</y>
-        <width>171</width>
-        <height>111</height>
+        <width>351</width>
+        <height>131</height>
        </rect>
       </property>
      </widget>
@@ -1046,8 +1046,8 @@
        <rect>
         <x>90</x>
         <y>230</y>
-        <width>171</width>
-        <height>111</height>
+        <width>351</width>
+        <height>131</height>
        </rect>
       </property>
      </widget>
@@ -1056,8 +1056,8 @@
        <rect>
         <x>90</x>
         <y>370</y>
-        <width>171</width>
-        <height>111</height>
+        <width>351</width>
+        <height>151</height>
        </rect>
       </property>
      </widget>
@@ -1072,6 +1072,29 @@
       </property>
       <property name="text">
        <string>Vectors:</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>90</y>
+        <width>351</width>
+        <height>131</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>90</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Materials:</string>
       </property>
      </widget>
     </widget>
