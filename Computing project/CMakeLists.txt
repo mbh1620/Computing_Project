@@ -59,16 +59,15 @@ add_library( 3d_viewer_libs ./cell_class/cell.cpp
 
 #Add tests and test executables here
 
+add_executable(test1 ./Computing\ project/Test\ Mains/cell_test.cpp)
+add_executable(test2 ./Computing\ project/Test\ Mains/material_test.cpp)
+add_executable(test4 ./Computing\ project/Test\ Mains/Vector_test.cpp)
 
 
 target_link_libraries(test1 3d_viewer_libs)
 target_link_libraries(test2 3d_viewer_libs)
 target_link_libraries(test4 3d_viewer_libs)
 
-add_executable(test1 ./Computing\ project/Test\ Mains/cell_test.cpp)
-add_executable(test2 ./Computing\ project/Test\ Mains/material_test.cpp)
-
-add_executable(test4 ./Computing\ project/Test\ Mains/Vector_test.cpp)
 
 add_test(test1 test1)
 add_test(test2 test2)
