@@ -1,3 +1,5 @@
+/// \file
+
 #include <iostream>
 #include "../cell_class/cell.hpp"
 
