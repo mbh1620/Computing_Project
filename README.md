@@ -1,4 +1,4 @@
-# Computing_Project
+# 3D Viewer Project
 ![build status](https://travis-ci.com/mbh1620/Computing_Project.svg?token=GqtXXcs7xDsCW7iqqCwg&branch=master)
 
 ## To Build the project and create an installer:
