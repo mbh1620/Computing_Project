@@ -11,9 +11,9 @@ add_library( 3d_viewer_libs ../cell_class/cell.cpp
 
 
 add_executable(test1 ./cell_test.cpp)
-add_executable(test1 ./material_test.cpp)
-add_executable(test1 ./modeltest.cpp)
-add_executable(test1 ./Vector_test.cpp)
+add_executable(test2 ./material_test.cpp)
+add_executable(test3 ./modeltest.cpp)
+add_executable(test4 ./Vector_test.cpp)
 
 target_link_libraries(test1 3d_viewer_libs)
 target_link_libraries(test2 3d_viewer_libs)
