@@ -21,7 +21,7 @@ if [ -d "html" ] && [ -f "html/index.html" ]; then
         git commit -m "Deploy docs: ${TRAVIS_BUILD_NUMBER}" -m "Commit: ${TRAVIS_COMMIT}"
 		echo 'commited'
         git push --force "https://${TOKEN}@${GH_REPO_REF}" 
-		
+		exit 0 
 else
 
 	echo '' >&2
