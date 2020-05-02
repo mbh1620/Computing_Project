@@ -1,4 +1,18 @@
 /// \file
+
+/*! \mainpage 3D Viewer Project Documentation
+ *
+ * \section intro_sec Introduction
+ *
+ * This is the introduction.
+ *
+ * \section install_sec Installation
+ *
+ * \subsection step1 Step 1: Opening the box
+ *
+ * etc...
+ */
+
 #include "cell.hpp"
 #include <iostream>
 
