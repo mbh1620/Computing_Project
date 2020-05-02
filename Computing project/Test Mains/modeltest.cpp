@@ -1,3 +1,5 @@
+/// \file
+
 #include <iostream>
 #include "../model_class/model.hpp"
 

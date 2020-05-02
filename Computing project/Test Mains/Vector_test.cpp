@@ -1,3 +1,5 @@
+/// \file 
+
 #include <iostream>
 #include "../vector_class/vector.hpp"
 
