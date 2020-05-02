@@ -15,6 +15,7 @@ addons:
 compiler:
   - clang
 script:
+- gcc -v && g++ -v && cmake --version
 - cmake ./Computing\ project/Test\ Mains/
 - make 
 - ls
