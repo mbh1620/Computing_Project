@@ -17,9 +17,8 @@ compiler:
 script:
 - cmake ./Computing\ project/Test\ Mains/
 - ls
-- make
+- make test
 - ls
-- make test1
 - cd $TRAVIS_BUILD_DIR
 - chmod +x generateDocumentationAndDeploy.sh 
 - ls
