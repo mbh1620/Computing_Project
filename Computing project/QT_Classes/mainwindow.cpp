@@ -1115,10 +1115,6 @@ void MainWindow::show_COG(bool checked){
 
   vtkSmartPointer<vtkActor> arrowActor;
 
-  if(checked){
-
-
-
   int number = ui -> listWidget -> currentRow();
 
   if(number != -1 ){
@@ -1136,6 +1132,8 @@ void MainWindow::show_COG(bool checked){
   double center[3];
 
   centerOfMassFilter->GetCenter(center);
+
+  centerOfMassFilter->Update();
 
 
   //Use this Center as the start point for the COG arrow 
@@ -1163,7 +1161,7 @@ void MainWindow::show_COG(bool checked){
 
   arrowSource->Update();
 
-  vtkSmartPointer<vtkPolyDataMapper> mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
+  mapper = vtkSmartPointer<vtkPolyDataMapper>::New();
 
   mapper->SetInputConnection(arrowSource->GetOutputPort());
 
@@ -1191,10 +1189,20 @@ void MainWindow::show_COG(bool checked){
   arrowActor->SetUserTransform(transform);
   
   
+  if(checked){
+    renderer->AddActor(arrowActor);
+  }
+  
 
-  renderer->AddActor(arrowActor);
+  cout << checked;
 
+  if(!checked){
 
+    renderer->RemoveViewProp(arrowActor);
+
+    renderer->RemoveActor(arrowActor);
+  
+  }
 
   //Create an arrow object 
 
@@ -1211,21 +1219,6 @@ void MainWindow::show_COG(bool checked){
     ui->checkBox->setChecked(false);
 
   }
-
-  
-
-} else if(!checked){
-
-  
-
-  //arrowActor->GetProperty()->SetOpacity(0);
-  
-  renderer->RemoveActor(arrowActor);
-  
-  //cout << checked << "\n";
-  
-  ui->qvtkWidget->GetRenderWindow()->Render();
-}
 
 }
 
