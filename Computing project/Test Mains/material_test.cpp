@@ -30,6 +30,6 @@ int main(){
 	std::cout << b.getColour() << " \n";
 	std::cout << b.getDensity() << " \n";
 
-	return 1;
+	return 0; //Return 0 if all is good 
 
 }

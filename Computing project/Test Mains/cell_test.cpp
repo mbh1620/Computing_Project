@@ -72,6 +72,6 @@ int main(){
 	a_cell.volume_calc();
 
 	
-	return 1;
+	return 0; //return 0 if all is good 
 
 }
