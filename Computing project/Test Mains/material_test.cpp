@@ -3,6 +3,14 @@
 #include <iostream>
 #include "../material_class/material.hpp"
 
+//----------------------------------------------------
+//
+//						   Material Test 
+//	
+//----------------------------------------------------
+
+//Author: Matt Haywood
+
 int main(){
 
 //Create a material "wood" with density 2700 and color h4h4h4

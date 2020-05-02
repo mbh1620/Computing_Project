@@ -3,6 +3,16 @@
 #include <iostream>
 #include "../vector_class/vector.hpp"
 
+
+
+//----------------------------------------------------
+//
+//						  Vector Test
+//	
+//----------------------------------------------------
+
+//Author: Matt Haywood
+
 int main(){
 	
 	//Test of Cross Product

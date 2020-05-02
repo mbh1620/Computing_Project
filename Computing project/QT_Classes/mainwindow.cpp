@@ -48,6 +48,16 @@
 #include <vtkAppendFilter.h>
 
 
+
+//-----------------------------------------------------------------------------
+//
+//                      MainWindow Class Implementation 
+//  
+//-----------------------------------------------------------------------------
+
+//Author: Matt Haywood
+
+
 MainWindow::MainWindow(QWidget *parent, std::string Filename) : QMainWindow(parent), ui(new Ui::MainWindow) {
 
   //iniatialize the actor array to null

@@ -4,6 +4,15 @@
 #include "../model_class/model.hpp"
 
 
+//----------------------------------------------------
+//
+//						   Model Test
+//	
+//----------------------------------------------------
+
+//Author: Matt Haywood
+
+
 using namespace std;
 
 int main(){

@@ -1,6 +1,14 @@
 #include "vector.hpp"
 #include <iostream>
 
+//----------------------------------------------------
+//
+//						Vector Class Implementation 
+//	
+//----------------------------------------------------
+
+//Author: Matt Haywood
+
 Vector::Vector(){
 	id = 0;
 	x = 0;

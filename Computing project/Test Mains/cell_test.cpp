@@ -3,6 +3,14 @@
 #include <iostream>
 #include "../cell_class/cell.hpp"
 
+//----------------------------------------------------
+//
+//						   Cell Test 
+//	
+//----------------------------------------------------
+
+//Author: Matt Haywood
+
 
 int main(){
 	
