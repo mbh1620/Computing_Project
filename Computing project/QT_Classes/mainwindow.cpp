@@ -1123,6 +1123,9 @@ void MainWindow::Set_Opacity(){
 
 void MainWindow::show_COG(bool checked){
 
+  /*! \bug When enabling the centre of gravity of a model, it does not seem to turn off. This is because the CentreOfMass object 
+      seems to throw an error "must have at least 1 point". */ 
+
   vtkSmartPointer<vtkActor> arrowActor;
 
   int number = ui -> listWidget -> currentRow();
