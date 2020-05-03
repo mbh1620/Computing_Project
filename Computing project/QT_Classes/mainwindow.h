@@ -27,9 +27,13 @@ namespace Ui { class MainWindow; }
 //  
 //-----------------------------------------------------------------------------
 
-//Author: Matt Haywood
+/*! \author Matt Haywood */
 
 /// The MainWindow class is used for the QT user interface. This is where all of the functionalilty for the buttons, sliders and the functions for VKT are contained.
+
+/*! \bug When enabling the centre of gravity of a model, it does not seem to turn off. This is because the CentreOfMass object 
+seems to throw an error "must have at least 1 point". */ 
+
 
 /** 
 * The MainWindow class is used for the QT user interface. This is where all of the functionality for the buttons, sliders, and the VTKwidget are contained.
