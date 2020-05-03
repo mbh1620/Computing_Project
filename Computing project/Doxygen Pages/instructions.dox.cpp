@@ -9,11 +9,15 @@
 
 * ### Adding a .STL file
 
-* To add a .STL file, click on either the load button in the top left corner or the Add button underneath the model list. A file loader should open. Now navigate to the correct file and choose the file you would like to load. To load a number of models you can simply repeat the process as many times as you wish. 
+* To add a .STL file, click on either the load button in the top left corner or the Add button underneath the model list. A file loader should open. Now navigate to the correct file and choose the file you would like to load. To load a number of models you can simply repeat the process as many times as you wish. This can then allow a larger and more complex model to be created from many small component models. 
 
 * ### Adding a .txt file (proprietary format)
 
 * To add a .txt file repeat the process above however in the file loader, where it says 'files(.stl)', change that to 'All Files ()'. Then open a .txt file.
+
+* ### Saving to a .STL file
+
+* To Save everything that is on the viewing screen as a single .STL file, or to convert a .TXT (proprietary) model which has been loaded into the viewer to .STL, simply click on the save to .STL button located under the Add and Delete buttons. A file save window should then appear asking you to name the file. Name the file and then press save.
 
 * ### Deleting a model
 
