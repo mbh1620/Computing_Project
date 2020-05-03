@@ -158,9 +158,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a9c0077c945dfef5413c981e783140cfd">Set_Opacity</a> ()</td></tr>
 <tr class="memdesc:a9c0077c945dfef5413c981e783140cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the model opacity. <br /></td></tr>
 <tr class="separator:a9c0077c945dfef5413c981e783140cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6946a3adda7fd49097b23f11f9bc27fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6946a3adda7fd49097b23f11f9bc27fd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a6946a3adda7fd49097b23f11f9bc27fd">show_COG</a> (bool checked)</td></tr>
-<tr class="memdesc:a6946a3adda7fd49097b23f11f9bc27fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows an arrow indicating the models centre of gravity. <br /></td></tr>
+<tr class="memitem:a6946a3adda7fd49097b23f11f9bc27fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a6946a3adda7fd49097b23f11f9bc27fd">show_COG</a> (bool checked)</td></tr>
+<tr class="memdesc:a6946a3adda7fd49097b23f11f9bc27fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows an arrow indicating the models centre of gravity.  <a href="#a6946a3adda7fd49097b23f11f9bc27fd">More...</a><br /></td></tr>
 <tr class="separator:a6946a3adda7fd49097b23f11f9bc27fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8020599f1fc3166e7d4b6269733643a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8020599f1fc3166e7d4b6269733643a5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_main_window.html#a8020599f1fc3166e7d4b6269733643a5">Save_As_STL_File</a> ()</td></tr>
@@ -248,9 +247,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>item_length</b> = 0</t
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_main_window.html" title="The MainWindow class is used for the QT user interface. This is where all of the functionalilty for t...">MainWindow</a> class is used for the QT user interface. This is where all of the functionalilty for the buttons, sliders and the functions for VKT are contained. </p>
-<dl class="section author"><dt>Author</dt><dd>Matt Haywood</dd></dl>
-<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>When enabling the centre of gravity of a model, it does not seem to turn off. This is because the CentreOfMass object seems to throw an error "must have at least 1 point". </dd></dl>
-<p>The <a class="el" href="class_main_window.html" title="The MainWindow class is used for the QT user interface. This is where all of the functionalilty for t...">MainWindow</a> class is used for the QT user interface. This is where all of the functionality for the buttons, sliders, and the VTKwidget are contained. </p>
+<dl class="section author"><dt>Author</dt><dd>Matt Haywood The <a class="el" href="class_main_window.html" title="The MainWindow class is used for the QT user interface. This is where all of the functionalilty for t...">MainWindow</a> class is used for the QT user interface. This is where all of the functionality for the buttons, sliders, and the VTKwidget are contained. </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a6f0bbfedb123d306b00f0a18350f8ee1"></a>
 <div class="memitem">
@@ -347,6 +344,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>item_length</b> = 0</t
 
 <p>The openFile slot is used to trigger the QFileDialog to see whether to open a proprietry or STL file type. </p>
 <p>This function is for triggering the opening of a file. This function detects whether the file is a .STL or a .TXT (Proprietry format). It then either calls the openCustomFile function if it is a .TXT or it creates a STL reader and opens a .STL file.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6946a3adda7fd49097b23f11f9bc27fd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MainWindow::show_COG </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>checked</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Shows an arrow indicating the models centre of gravity. </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>When enabling the centre of gravity of a model, it does not seem to turn off. This is because the CentreOfMass object seems to throw an error "must have at least 1 point". </dd></dl>
 
 </div>
 </div>

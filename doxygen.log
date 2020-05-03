@@ -169,11 +169,11 @@ Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing 
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/Test Mains/material_test.cpp...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing project/Test Mains/modeltest.cpp...
 Generating docs for file /home/travis/build/mbh1620/Computing_Project/Computing /home/travis/build/mbh1620/Computing_Project/Computing project/Test Mains/Vector_test.cpp:16: warning: Member main() (function) of file Vector_test.cpp is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:46: warning: Member MainWindow(QWidget *parent=0, std::string Filename="Boat.stl") (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:80: warning: Member check_item_array_length() (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:82: warning: Member disable_distance_widget() (function) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:72: warning: Member model1 (variable) of class MainWindow is not documented.
-/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:78: warning: Member item_length (variable) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:42: warning: Member MainWindow(QWidget *parent=0, std::string Filename="Boat.stl") (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:76: warning: Member check_item_array_length() (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:78: warning: Member disable_distance_widget() (function) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:68: warning: Member model1 (variable) of class MainWindow is not documented.
+/home/travis/build/mbh1620/Computing_Project/Computing project/QT_Classes/mainwindow.h:74: warning: Member item_length (variable) of class MainWindow is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:52: warning: Member matrix(int first, int second_dimension, float data[]) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:56: warning: Member matrix(const matrix &a) (function) of class matrix is not documented.
 /home/travis/build/mbh1620/Computing_Project/Computing project/matrix_class/matrix.hpp:58: warning: Member operator=(const matrix &a) (function) of class matrix is not documented.
@@ -210,5 +210,5 @@ Generating file member index...
 Generating example index...
 finalizing index lists...
 writing tag file...
-lookup cache used 162/65536 hits=972 misses=171
+lookup cache used 163/65536 hits=974 misses=172
 finished...
