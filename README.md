@@ -25,4 +25,4 @@ The installer should then be created.
 
 ### Future Update
 
-I have added a simulation tab however this is not working yet. This would be a future upgrade for this project to allow the Aerospace company to perform computational fluid dynamic simulations and wind tunnel simulations. To implement this part I would need to add some code to solve partial differential equations in 3D. 
+I have added a simulation tab to the gui, however this is not working yet. This would be a future upgrade for this project to allow the Aerospace company to perform computational fluid dynamic simulations and wind tunnel simulations. To implement this part I would need to add some more classes to the libraries to solve partial differential equations in 3D. 
