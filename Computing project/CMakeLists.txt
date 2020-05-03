@@ -8,11 +8,11 @@ endif()
 endforeach()
 PROJECT( 3DViewer )
 
-set(CPACK_GENERATOR "DragNDrop")
+set(CPACK_GENERATOR "DragNDrop") #CPack Generator set to the standard MacOs installer Drag and Drop.
 
-include(CPack)
+include(CPack) #Include CPack for the packaging of the project 
 
-include(CTest)
+include(CTest) #Include CTest for the testing of the project 
 
 # The CMake build process might generate some new files in the current # directory. This makes sure they can be found.
 
@@ -27,7 +27,7 @@ set( CMAKE_AUTOUIC ON )
 
 
  
-find_package( Qt5Widgets )
+find_package( Qt5Widgets )  #Find the Qt5Widgets library 
 
 get_target_property(QtWidgets_location Qt5::Widgets LOCATION)
 
@@ -48,7 +48,7 @@ find_package( VTK REQUIRED )
 include( ${VTK_USE_FILE} )
 
 
-
+#Added in house library here ---------------------------------------
 
 add_library( 3d_viewer_libs ./cell_class/cell.cpp 
 			    ./material_class/material.cpp
@@ -119,6 +119,10 @@ PROPERTIES
 MACOSX_BUNDLE_BUNDLE_NAME "3DViewer"
 )
 
+#Included bundleUtilities to create a bundle.
+#Included InstallRequiresSystemLibraries for the creation of the installer. 
+#Included DeployQt5.cmake which is also used to deploy the Qt libraries.
+
 include(BundleUtilities)
 include(InstallRequiredSystemLibraries)
 include(DeployQt5.cmake)
@@ -130,6 +134,8 @@ get_filename_component(vtk_dlls_dir "${vtk_location}" PATH)
 set(dirs2 "${vtk_dlls_dir}")
 
 set(dirs "${qt_dlls_dir}")
+
+#This command here is what creates the Mac OS Darwin installer.
 
 install_qt5_executable("3DViewer.app" "" "" "${dirs}" "" "")
 

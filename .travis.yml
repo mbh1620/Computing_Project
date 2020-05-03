@@ -3,6 +3,8 @@ compiler: gcc
 
 os: linux
 
+#For the testing the c++ class tests, the Travis CI needed to have the correct C++ version.
+
 branches:
   except:
   - gh-pages
@@ -11,6 +13,7 @@ env:
   - GH_REPO_NAME: Computing_Project
   - DOXYFILE: "$TRAVIS_BUILD_DIR/Doxyfile"
   - GH_REPO_REF: github.com/mbh1620/Computing_Project.git
+  #The line below links the TOKEN to a project and secures it so that no one could read it in this file and then use it elsewhere.
   - secure: "oVZOETUFnM+UreWGtmMSoQvdnLT6r2ulJaO7jT9rBsEY3/hZsoGJQ0t+D/5tt1pZBxGZHlrD2MLeA76zXn6jrxrI0cpRC+7o1Rkw+0wFZlswNMSZ9fTXu/PR/2jTzn2DJNDsZxk1Rqtw4odtDO3HxZddrKVldXtnqLrL041j4TSAQ01ZeJZlYjv1rAAwL5SQn9FjhoOGHX2xx/VELq6eCRkjuBtb8xyXwjC1d0hnw6xhBV+QKfOYgkFF4/UOrDYPxT5gJtN98P9ZRPfYkr6eOvYFHy2lf8giWSmuujOoEevaz0h8Pz4XRTB5mbJEsJXkM22Fug7ojsGOz/1KB2uEb0FRBSrVC9Ut/euW9j+6YQqptLXicnitOg2sV9ZrLsQO80Ia182ndMaCZyhBuXuzv5ordNSeIjUlFX4ututea+GptqroHzlREiQe4YdzVX1aTOIHlFkgnE7I+gCnbUlOTkkjH9E3hGrOoZtPxjneIgclU1aRlizswGSxte6qUBgmxiiwiWgURk+ov6frpIIqxhAWigoFI2j8UzWDpu3aSspPEXINU/IMtGVnJtFPZheSQWhiFAYbAj+WRtKHYXGoTZwDeDxzHXi/FT8oTllhCwhyHnzqy5+NoNn/nkyW+dcLuyUi0sa40Bd2StzlXoLZHu/gb5WuIwkfEnKPcdYUi0Q="
 addons:
   apt:
@@ -19,12 +22,12 @@ addons:
     packages:
       - doxygen
       - graphviz
-      - g++-7
+      - g++-7                                 #This package was included to update the travis C++ version
 compiler:
   - clang
 script:
-- export CC=gcc-7
-- export CXX=g++-7
+- export CC=gcc-7                             #This command updates the Travis c++ version.
+- export CXX=g++-7                            #This command updated the Travis c++ version.
 - gcc -v && g++ -v && cmake --version
 - cmake ./Computing\ project/Test\ Mains/
 - make 

@@ -22,6 +22,24 @@ int main(){
 	std::cout << wood.getColour() << " \n";
 	std::cout << wood.getDensity() << " \n";
 
+	if( wood.getId() != 1){
+
+		std::cout << "Material Class Error: There is an error in the constructor function";
+		return 1;
+	} 
+	if( wood.getName() != "wood"){
+		std::cout << "Material Class Error: There is an error in the constructor function";
+		return 1;
+	}
+	if( wood.getColour() != "h4h4h4" ){
+		std::cout << "Material Class Error: There is an error in the constructor function";
+		return 1;
+	}
+	if( wood.getDensity() != 2700 ){ 
+		std::cout << "Material Class Error: There is an error in the constructor function";
+		return 1;
+	}
+
 //Test assignment operator and copy constructor 
 
 	material a = wood;
@@ -31,6 +49,24 @@ int main(){
 	std::cout << a.getColour() << " \n";
 	std::cout << a.getDensity() << " \n";
 
+	if( a.getId() != 1){
+
+		std::cout << "Material Class Error: There is an error in the copy constructor function";
+		return 1;
+	} 
+	if( a.getName() != "wood"){
+		std::cout << "Material Class Error: There is an error in the copy constructor function";
+		return 1;
+	}
+	if( a.getColour() != "h4h4h4" ){
+		std::cout << "Material Class Error: There is an error in the copy constructor function";
+		return 1;
+	}
+	if( a.getDensity() != 2700 ){ 
+		std::cout << "Material Class Error: There is an error in the copy constructor function";
+		return 1;
+	}
+
 	material b;
 
 	b = a;
@@ -39,6 +75,8 @@ int main(){
 	std::cout << b.getName() << " \n";
 	std::cout << b.getColour() << " \n";
 	std::cout << b.getDensity() << " \n";
+
+	
 
 	return 0; //Return 0 if all is good 
 

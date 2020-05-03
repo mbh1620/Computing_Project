@@ -1,4 +1,9 @@
 # Vertices 
+v 0 2. 3. 4. 
+v 1 2. 4. 5.
+v 2 3. 4. 5.
+v 3 7. 5. 3.
 # Materials 
 m 1 2700 bcbcbc aluminium
 # Cells 
+c 0 t 1 0 1 2 3

@@ -23,11 +23,29 @@ int main(){
 
 	std::cout << c.get('x') << " " << c.get('y') << " " << c.get('z');
 
+
+
 	//Test of dot product
 	Vector d = Vector(2, 1,2,3);
 	Vector e = Vector(3, 6,7,8);
 
 	std::cout << " dot product: " << d.dot(e);
+
+	Vector f = d.dot(e);
+
+	if(f.get('x') != 6 ){
+		std::cout << "Vector Class Error: There is an error with the dot product function in the x term";
+		return 1;
+	}
+
+	if( f.get('y') != 14){
+		std::cout << "Vector Class Error: There is an error with the dot product function in the y term";
+		return 1;
+	}
+
+	if( f.get('z') != 24){
+		std::cout << "Vector Class Error: There is an error with the dot product function in the z term";
+	}
 
 
 

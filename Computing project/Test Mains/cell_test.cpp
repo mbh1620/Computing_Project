@@ -49,17 +49,44 @@ int main(){
 
 	a_cell.setId(1);
 
+	//If the get id does not get 1 then there is an error in the function
+
+	if(a_cell.getId() != 1){
+		std::cout << "Cell Class Error: setId function not working";
+		return 1;
+	}
+
 	a_cell.set_material(wood);
+
+	if(a_cell.get_material() != "wood"){
+		std::cout << "Cell Class Error: There is an error in the 'set_material()' function";
+		return 1;
+	}
 
 	a_cell.get_material();
 
-	a_cell.get_shape();
+	if( a_cell.get_shape() != 'n') {
+		std::cout << "Cell Class Error: The cell shape has not been defaulted to 'n' ";
+		return 1;
+	}
+
 
 	a_cell.set_shape('t');
+
+	if( a_cell.get_shape() != 't') {
+
+		std::cout << "Cell Class Error: There is an error in the set_shape() function";
+		return 1;
+	}
 
 	a_cell.get_volume();
 
 	a_cell.set_volume(1234);
+
+	if( a_cell.get_volume() != 1234) {
+		std::cout << "Cell Class Error: There is an error in the set_volume() function";
+		return 1;
+	}
 
 	a_cell.get_cog();
 
@@ -68,6 +95,11 @@ int main(){
 	a_cell.get_weight();
 
 	a_cell.set_weight(14345);
+
+	if( a_cell.get_weight() != 14345){
+		std::cout << "Cell Class Error: There is an error in the set_weight() function";
+		return 1;
+	}
 
 	a_cell.get_vertices();
 

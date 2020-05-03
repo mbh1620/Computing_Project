@@ -8,7 +8,7 @@
 //	
 //----------------------------------------------------
 
-/*! \author Matt Haywood /n */
+/*! \author Matt Haywood \n */
 
 /// The Renderer class is used to create a renderer using the Three.js visualiser. It will then output a .html file which contains the 3d viewer with the correct objects.
 
