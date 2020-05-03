@@ -58,7 +58,7 @@ int main(){
 
 	a_cell.set_material(wood);
 
-	if(a_cell.get_material() != "wood"){
+	if(a_cell.get_material().getName() != "wood"){
 		std::cout << "Cell Class Error: There is an error in the 'set_material()' function";
 		return 1;
 	}
