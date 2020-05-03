@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------------//
 
 
-/*! \author Matt Haywood */
+/*! \author Matt Haywood  \n */
 
 ///The Vector class is used to hold the x,y and z values for a point. It also holds the value for the id of the point.
 

@@ -27,7 +27,7 @@ namespace Ui { class MainWindow; }
 //  
 //-----------------------------------------------------------------------------
 
-/*! \author Matt Haywood */
+/*! \author Matt Haywood \n */
 
 /// The MainWindow class is used for the QT user interface. This is where all of the functionalilty for the buttons, sliders and the functions for VKT are contained.
 

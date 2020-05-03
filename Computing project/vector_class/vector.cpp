@@ -7,7 +7,7 @@
 //	
 //----------------------------------------------------
 
-/*! \author Matt Haywood */
+// author Matt Haywood 
 
 Vector::Vector(){
 	id = 0;

@@ -7,7 +7,7 @@
 //	
 //----------------------------------------------------
 
-/*! \author Matt Haywood */
+// author Matt Haywood 
 
 material::material(int _ID, std::string _name, std::string _colour, float _density){
 	ID = _ID;
