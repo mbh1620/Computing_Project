@@ -1,11 +1,19 @@
 var searchData=
 [
-  ['on_5fcomponent_5fclick',['On_component_click',['../class_main_window.html#ad516d4bd811ef7e55ce51e5f7d0b5c90',1,'MainWindow']]],
-  ['on_5ffile_5fadd',['on_file_add',['../class_main_window.html#a6336557f147467612014d1597991d1c0',1,'MainWindow']]],
-  ['open_5ffile',['open_file',['../classrenderer.html#a82e89e29b61a9fe306010a91f6c52fdf',1,'renderer']]],
-  ['opencustomfile',['openCustomFile',['../class_main_window.html#aa567076cfc766f5e6be2b51edab75114',1,'MainWindow']]],
-  ['openfile',['openFile',['../class_main_window.html#a288b768c3c21a9171bdc56fe845ece8b',1,'MainWindow']]],
-  ['operator_2b',['operator+',['../class_vector.html#a219655b46ffcae5f3035c7efb6fa6ac5',1,'Vector']]],
-  ['operator_2d',['operator-',['../class_vector.html#ad4330d4d92306d14309927d20d956ee9',1,'Vector']]],
-  ['operator_3d',['operator=',['../classcell.html#a28f8043a576cf1f5218d2089e9c84178',1,'cell::operator=()'],['../classmaterial.html#a442706915afbfd236c6fba5305383773',1,'material::operator=()'],['../classmodel.html#af28b7a13c8b539c2ff3257f634c67390',1,'model::operator=()'],['../classrenderer.html#a41f8a93e14494d8550b1dd4acd879703',1,'renderer::operator=()'],['../class_vector.html#a2b7a20a694e2ce2831a0b1f04b58990a',1,'Vector::operator=()']]]
+  ['main',['main',['../cell__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'cell_test.cpp']]],
+  ['mainpage_2edox_2ecpp',['mainpage.dox.cpp',['../mainpage_8dox_8cpp.html',1,'']]],
+  ['mainwindow',['MainWindow',['../class_main_window.html',1,'']]],
+  ['mainwindow_2ecpp',['mainwindow.cpp',['../mainwindow_8cpp.html',1,'']]],
+  ['mapper',['mapper',['../class_main_window.html#a097c0d8f5b06bace000eb3ca733d57b6',1,'MainWindow']]],
+  ['mapper2',['mapper2',['../class_main_window.html#a945eac9a27af94b327afa3c95e6e7d47',1,'MainWindow']]],
+  ['material',['material',['../classmaterial.html',1,'material'],['../classmaterial.html#ae93d44fa5f9cc412445e660a0ab3bd2c',1,'material::material(int _ID, std::string _name, std::string _colour, float _density)'],['../classmaterial.html#abcbc2f61c24746fe8923983a4ba39d1e',1,'material::material()'],['../classmaterial.html#a943438e128535c95d5387dac9e653cee',1,'material::material(const material &amp;a)']]],
+  ['material_5fparser',['material_parser',['../classmodel.html#ac9c8c3d876e28276fa0bcbef8c4ac3b2',1,'model']]],
+  ['material_5ftest_2ecpp',['material_test.cpp',['../material__test_8cpp.html',1,'']]],
+  ['matrix',['matrix',['../classmatrix.html',1,'']]],
+  ['model',['model',['../classmodel.html',1,'model'],['../classmodel.html#a89150458364164cfaf05f700365c1416',1,'model::model()'],['../classmodel.html#ab6c0cdf2c4da02e0351f40c5742a8786',1,'model::model(const model &amp;a)']]],
+  ['model_2ecpp',['model.cpp',['../model_8cpp.html',1,'']]],
+  ['model_2ehpp',['model.hpp',['../model_8hpp.html',1,'']]],
+  ['model_5fdetails',['model_details',['../class_main_window.html#a6f0bbfedb123d306b00f0a18350f8ee1',1,'MainWindow']]],
+  ['models',['models',['../class_main_window.html#a9c737960d1dce17d00c5776795a68126',1,'MainWindow']]],
+  ['modeltest_2ecpp',['modeltest.cpp',['../modeltest_8cpp.html',1,'']]]
 ];
