@@ -55,7 +55,7 @@
 //  
 //-----------------------------------------------------------------------------
 
-//Author: Matt Haywood
+/// \Author Matt Haywood
 
 
 MainWindow::MainWindow(QWidget *parent, std::string Filename) : QMainWindow(parent), ui(new Ui::MainWindow) {

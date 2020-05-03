@@ -5,7 +5,7 @@
 //	
 //----------------------------------------------------
 
-//Author: Matt Haywood
+/*! \Author Matt Haywood */
 
 /// The Material class holds information about a material. It holds the ID, Name, Colour and Density of the material.
 
