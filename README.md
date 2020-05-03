@@ -29,6 +29,6 @@ I have added a simulation tab to the gui, however this is not working yet. This 
 
 ### Usage Instructions 
 
-The usage instructions can be found either in the repository WIKI or in the doxygen documentation.
+The usage instructions can be found either in the repository WIKI [here](https://github.com/mbh1620/Computing_Project/wiki/Usage-Instructions) or in the doxygen documentation [here](https://mbh1620.github.io/Computing_Project/html/Instruction_page.html).
 
 ![photo](https://github.com/mbh1620/Computing_Project/blob/master/Computing%20project/Images/Image1.png) 
