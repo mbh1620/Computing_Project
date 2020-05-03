@@ -10,7 +10,7 @@
 //	
 //----------------------------------------------------
 
-/*! \Author/ Matt Haywood
+/*! \Author Matt Haywood */
 
 
 using namespace std;
