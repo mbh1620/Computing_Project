@@ -18,7 +18,7 @@
 //	
 //-----------------------------------------------------------------------------
 
-/*! \Author Matt Haywood */
+/*! \author Matt Haywood */
 
 /// The Cell Class is used to create a pyramid, tetrahedron or hexahedron.
 

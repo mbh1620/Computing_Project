@@ -37,7 +37,7 @@ float volume_of_tetra(Vector vertices[]){
 //	
 //-----------------------------------------------------------------------------
 
-/*! \Author Matt Haywood */
+/*! \author Matt Haywood */
 
 int cell::getId(){			
 	return id;

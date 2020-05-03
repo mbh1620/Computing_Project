@@ -9,7 +9,7 @@
 //	
 //----------------------------------------------------
 
-/*! \Author/ Matt Haywood */
+/*! \author/ Matt Haywood */
 
 int main(){
 
