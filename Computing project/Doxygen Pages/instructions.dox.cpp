@@ -1,6 +1,6 @@
 /// \file
 
-/*! \page Instruction Instruction page 
+/*! \page Instruction_page Instruction page 
  *
  * Instructions for the 3D model Viewer software
  * =============================================
