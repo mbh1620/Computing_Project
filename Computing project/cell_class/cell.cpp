@@ -92,6 +92,9 @@ cell::cell(const cell& a){
 }
 
 cell& cell:: operator=(const cell& a){
+
+	/*! Copy constructor copies the id, vertices, volume, material, cog, weight, shape*/
+
 	id = a.id;
 	vertices = a.vertices;
 	volume = a.volume;
